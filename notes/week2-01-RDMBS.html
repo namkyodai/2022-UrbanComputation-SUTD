@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Nam LE" />
+  <meta name="copyright" content="Copyright of ASQ Vietnam Co. Ltd - Prepared for course at SUTD"/>
+  <title>Urban Data &amp; Methods II: Computational Urban Analysis</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+              </style>
+  <slide class="" id="">
+  <article>
+  <header class = 'logo'>
+  <div style="position: fixed; top:10px; right:10px; z-index:100">
+  <img src = "assets/img/logo-sutd.png" height="60" width="110">
+  </div>
+  </header>
+
+  <!-- <footer class = 'logo'>
+  <div style="position: fixed; top:10px; left:10px; z-index:100">
+  <img src = "assets/img/logo-asq.png" height="80" width="80">
+  </div>
+  </footer> -->
+
+  </article>
+  </slide>
+  <script src="week2-01-RDMBS_files/header-attrs-2.11/header-attrs.js"></script>
+  <link href="week2-01-RDMBS_files/slidy-2/styles/slidy.css" rel="stylesheet" />
+  <script src="week2-01-RDMBS_files/slidy-2/scripts/slidy.js"></script>
+  <script src="week2-01-RDMBS_files/slidy_shiny-1/slidy_shiny.js"></script>
+  <meta name="duration" content="45" />
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Urban Data &amp; Methods II: Computational Urban Analysis</h1>
+  <h1 class="subtitle">Week 2 - Data Warehouse and Relational Database Management System</h1>
+  <p class="author">
+<a href="https://namkyodai.github.io">Nam LE</a>
+  </p>
+  <p class="date">14-March-2022</p>
+</div>
+<div id="your-knowledge-on-database-management-system" class="slide section level2">
+<h1>Your Knowledge on Database Management System</h1>
+<p>Kindly spend few minutes to answer 2 questions</p>
+<p><a href="https://forms.gle/mpNGMEgPPtuQJ5aj8" class="uri">https://forms.gle/mpNGMEgPPtuQJ5aj8</a></p>
+<p><img src="assets/img/istockphoto-1185370773-612x612.jpg" width="30%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="inventor-entreprener" class="slide section level2">
+<h1>Inventor &amp; Entreprener</h1>
+<div class="left" style="float:left;width:48%">
+<p><img src="assets/img/teddcodd.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="left" style="float:left;width:48%">
+<p><img src="assets/img/larryellison.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+<ul>
+<li><p>Enterprise Resource Planning (ERP) systems</p></li>
+<li><p>Commercial websites</p></li>
+<li><p>One of the popular RDBMSs for storing spatial data is PostgreSQL</p></li>
+<li><p>There are many other types of systems (e.g. MongoDB for storing both relational and non-relational types of data)</p></li>
+</ul>
+</div>
+<div id="data-analysis-with-excel" class="slide section level2">
+<h1>Data Analysis with Excel?</h1>
+<p><strong>Excel is a great tool, however it is not optimal for data analytically works.</strong></p>
+<div class="left" style="float:left;width:30%">
+<ul>
+<li>No error control</li>
+<li>Little reusability</li>
+<li>Problematic scalability</li>
+<li>Low coverage of data operations</li>
+<li>Lack of automation</li>
+<li>Not open</li>
+<li>Difficult collaboration</li>
+<li>Time consuming</li>
+<li>Not user-friendly</li>
+<li>Productionizing is hard</li>
+</ul>
+</div>
+<div class="left" style="float:left;width:70%">
+<p><img src="assets/img/badexcel.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="relational-database-management-system" class="slide section level2">
+<h1>Relational Database Management System</h1>
+<div class="left" style="float:left;width:48%">
+<p><img src="assets/img/entitydiagram.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="left" style="float:left;width:48%">
+<p><img src="assets/img/12coddrule.png" width="40%" style="display: block; margin: auto;" /></p>
+<blockquote>
+<p>The relational model (RM) for database management is an approach to managing data using a structure and language consistent with first-order predicate logic, first described in 1969 by English computer scientist Edgar F. Codd where all data is represented in terms of tuples, grouped into relations. A database organized in terms of the relational model is a relational database.</p>
+<p>The purpose of the relational model is to provide a declarative method for specifying data and queries: users directly state what information the database contains and what information they want from it, and let the database management system software take care of describing data structures for storing the data and retrieval procedures for answering queries.</p>
+</blockquote>
+<p>source: PrepInsta and Wikipedia</p>
+</div>
+</div>
+<div id="examples" class="slide section level2">
+<h1>Examples</h1>
+<h3 id="a-minute-system-using-ms-access">A minute system using MS Access</h3>
+<p><img src="assets/img/minutesystem.png" width="30%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Semi-automation process</li>
+<li>Full automation can be done with development of an WebApp and the App can be integrated with other platforms.</li>
+</ul>
+<h3 id="mysql-and-postgresql">MySQL and PostgreSQL</h3>
+<div style="display: flex;">
+<div>
+<p><img src="assets/img/mysql.png" width="40%" style="display: block; margin: auto;" /></p>
+<blockquote>
+<p>The World’s Most Popular Open Source Relational Database</p>
+</blockquote>
+</div>
+<div>
+<p><img src="assets/img/PostgreSQL.png" width="50%" style="display: block; margin: auto;" /></p>
+<blockquote>
+<p>The World’s Most Advanced Open Source Relational Database</p>
+</blockquote>
+</div>
+<div>
+<p><img src="assets/img/sqlite.gif" width="80%" style="display: block; margin: auto;" /></p>
+<blockquote>
+<p>The most used database engine in the world</p>
+</blockquote>
+</div>
+</div>
+<h3 id="clients-database-management-programs">Clients Database Management Programs</h3>
+<div style="display: flex;">
+<div>
+<p><img src="assets/img/navicat.jpg" width="40%" style="display: block; margin: auto;" /></p>
+</div>
+<div>
+<p><img src="assets/img/dbeaver.png" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div>
+<p><img src="assets/img/heidisql.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div>
+<p><img src="assets/img/pgadmin.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+<div id="structure-query-language-sql" class="slide section level2">
+<h1>Structure Query Language (SQL)</h1>
+<p>Again you do not need to be an expert in design/manage databases, you can confidently work with SQL and increase the productivity of works via a few number of functions.</p>
+<div class="left" style="float:left;width:48%">
+<p>SELECT</p>
+<p>SELECT DISTINCT</p>
+<p>WHERE</p>
+<p>AND, OR, NOT</p>
+<p>ORDER BY</p>
+<p>INSERT INTO</p>
+<p>NULL VALUES</p>
+<p>UPDATE</p>
+<p>DELETE</p>
+<p>SELECT TOP</p>
+<p>MIN and MAX</p>
+<p>COUNT, AVG, SUM</p>
+<p>FILTER</p>
+</div>
+<div class="left" style="float:left;width:48%">
+<iframe width="672" height="378" src="https://www.youtube.com/embed/7S_tz1z_5bA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p><strong>You dont need to remember, there are tons of examples, questions, and answers online. Typing right keywords in Google Search is KEY.</strong> and offcourse <strong>Practice makes Perfect</strong></p>
+<p><a href="https://www.w3schools.com/sql/" class="uri">https://www.w3schools.com/sql/</a></p>
+</div>
+</div>
+<div id="other-database-management-systems" class="slide section level2">
+<h1>Other Database Management Systems</h1>
+<p>There are many other types of data formats that require other types of database management systems/platforms rather than RDMBS. A typical type of data among them is with JSON format and popular used MongoDB platform.</p>
+<p>JSON stands for <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation</p>
+</div>
+
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "week2-01-RDMBS_files/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+</body>
+</html>

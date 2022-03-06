@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Nam LE" />
+  <meta name="copyright" content="Copyright of ASQ Vietnam Co. Ltd - Prepared for course at SUTD"/>
+  <title>Urban Data &amp; Methods II: Computational Urban Analysis</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+            pre > code.sourceCode { white-space: pre; position: relative; }
+            pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+            pre > code.sourceCode > span:empty { height: 1.2em; }
+            .sourceCode { overflow: visible; }
+            code.sourceCode > span { color: inherit; text-decoration: inherit; }
+            div.sourceCode { margin: 1em 0; }
+            pre.sourceCode { margin: 0; }
+            @media screen {
+            div.sourceCode { overflow: auto; }
+            }
+            @media print {
+            pre > code.sourceCode { white-space: pre-wrap; }
+            pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+            }
+            pre.numberSource code
+              { counter-reset: source-line 0; }
+            pre.numberSource code > span
+              { position: relative; left: -4em; counter-increment: source-line; }
+            pre.numberSource code > span > a:first-child::before
+              { content: counter(source-line);
+                position: relative; left: -1em; text-align: right; vertical-align: baseline;
+                border: none; display: inline-block;
+                -webkit-touch-callout: none; -webkit-user-select: none;
+                -khtml-user-select: none; -moz-user-select: none;
+                -ms-user-select: none; user-select: none;
+                padding: 0 4px; width: 4em;
+                color: #aaaaaa;
+              }
+            pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+            div.sourceCode
+              {   }
+            @media screen {
+            pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+            }
+            code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+            code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+            code span.at { color: #7d9029; } /* Attribute */
+            code span.bn { color: #40a070; } /* BaseN */
+            code span.bu { } /* BuiltIn */
+            code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+            code span.ch { color: #4070a0; } /* Char */
+            code span.cn { color: #880000; } /* Constant */
+            code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+            code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+            code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+            code span.dt { color: #902000; } /* DataType */
+            code span.dv { color: #40a070; } /* DecVal */
+            code span.er { color: #ff0000; font-weight: bold; } /* Error */
+            code span.ex { } /* Extension */
+            code span.fl { color: #40a070; } /* Float */
+            code span.fu { color: #06287e; } /* Function */
+            code span.im { } /* Import */
+            code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+            code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+            code span.op { color: #666666; } /* Operator */
+            code span.ot { color: #007020; } /* Other */
+            code span.pp { color: #bc7a00; } /* Preprocessor */
+            code span.sc { color: #4070a0; } /* SpecialChar */
+            code span.ss { color: #bb6688; } /* SpecialString */
+            code span.st { color: #4070a0; } /* String */
+            code span.va { color: #19177c; } /* Variable */
+            code span.vs { color: #4070a0; } /* VerbatimString */
+            code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+          </style>
+  <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <slide class="" id="">
+  <article>
+  <header class = 'logo'>
+  <div style="position: fixed; top:10px; right:10px; z-index:100">
+  <img src = "assets/img/logo-sutd.png" height="60" width="110">
+  </div>
+  </header>
+
+  <!-- <footer class = 'logo'>
+  <div style="position: fixed; top:10px; left:10px; z-index:100">
+  <img src = "assets/img/logo-asq.png" height="80" width="80">
+  </div>
+  </footer> -->
+
+  </article>
+  </slide>
+  <script src="week1-01-intro_files/header-attrs-2.11/header-attrs.js"></script>
+  <link href="week1-01-intro_files/slidy-2/styles/slidy.css" rel="stylesheet" />
+  <script src="week1-01-intro_files/slidy-2/scripts/slidy.js"></script>
+  <script src="week1-01-intro_files/slidy_shiny-1/slidy_shiny.js"></script>
+  <script src="week1-01-intro_files/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+  <script src="week1-01-intro_files/plotly-binding-4.10.0/plotly.js"></script>
+  <script src="week1-01-intro_files/typedarray-0.1/typedarray.min.js"></script>
+  <script src="week1-01-intro_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <link href="week1-01-intro_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+  <script src="week1-01-intro_files/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+  <link href="week1-01-intro_files/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+  <script src="week1-01-intro_files/plotly-main-2.5.1/plotly-latest.min.js"></script>
+  <link href="week1-01-intro_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+  <script src="week1-01-intro_files/datatables-binding-0.19/datatables.js"></script>
+  <link href="week1-01-intro_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+  <link href="week1-01-intro_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+  <script src="week1-01-intro_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+  <link href="week1-01-intro_files/nouislider-7.0.10/jquery.nouislider.min.css" rel="stylesheet" />
+  <script src="week1-01-intro_files/nouislider-7.0.10/jquery.nouislider.min.js"></script>
+  <link href="week1-01-intro_files/selectize-0.12.0/selectize.bootstrap3.css" rel="stylesheet" />
+  <script src="week1-01-intro_files/selectize-0.12.0/selectize.min.js"></script>
+  <meta name="duration" content="45" />
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">Urban Data &amp; Methods II: Computational Urban Analysis</h1>
+  <h1 class="subtitle">Week 1 - An Introduction</h1>
+  <p class="author">
+<a href="https://namkyodai.github.io">Nam LE</a>
+  </p>
+  <p class="date">7-March-2022</p>
+</div>
+<div id="about-me" class="slide section level2">
+<h1>About Me</h1>
+<div class="left" style="float:left;width:48%">
+<ul>
+<li>Bio
+<ul>
+<li>My main major is quantitative risk analysis and asset management for buildings and engineering systems. Data analytics work is one of my interest.</li>
+<li>4 years lived in Japan (Doctoral Study at Kyoto University and postdoc at Osaka University)</li>
+<li>&lt;2 years in Thailand (Master Study 2002-2004)</li>
+<li>6 years in Switzerland (2010-2016, ETH Zurich)</li>
+<li>6 years in the Philippines (2016-2021)</li>
+<li>Currently living in several locations Vietnam, Philippines, and India.</li>
+</ul></li>
+<li>Sports
+<ul>
+<li>Long distance running 🏃🏃🏃</li>
+<li>Diving 🏊</li>
+<li>and some others ^_^ 😄😈</li>
+</ul></li>
+</ul>
+</div>
+<div class="right" style="float:right;width:48%">
+<p><img src="week1-01-intro_files/figure-slidy/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<h3 id="about-me-1">About Me</h3>
+<div class="left" style="float:left;width:48%">
+<p><img src="week1-01-intro_files/figure-slidy/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div class="right" style="float:right;width:48%">
+<div id="htmlwidget-96a9d2b525becff50d99" style="width:672px;height:576px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-96a9d2b525becff50d99">{"x":{"data":[{"orientation":"h","width":[0.45,0.45,0.449999999999999,0.449999999999999,0.449999999999999,0.45,0.449999999999999,0.449999999999999,0.45,0.449999999999999],"base":[0,0,0,0,0,0,0,0,0,0],"x":[5,0,30,30,16,3,16,56,4,8],"y":[2.775,0.775,6.775,5.775,4.775,1.775,7.775,9.775,3.775,8.775],"text":["reorder(activity, value): running<br />value:  5<br />variable: 2010","reorder(activity, value): gaming<br />value:  0<br />variable: 2010","reorder(activity, value): coding<br />value: 30<br />variable: 2010","reorder(activity, value): reading<br />value: 30<br />variable: 2010","reorder(activity, value): writing<br />value: 16<br />variable: 2010","reorder(activity, value): bodyattack<br />value:  3<br />variable: 2010","reorder(activity, value): family<br />value: 16<br />variable: 2010","reorder(activity, value): sleeping<br />value: 56<br />variable: 2010","reorder(activity, value): netflix<br />value:  4<br />variable: 2010","reorder(activity, value): others<br />value:  8<br />variable: 2010"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"2010","legendgroup":"2010","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"h","width":[0.45,0.45,0.449999999999999,0.449999999999999,0.449999999999999,0.45,0.449999999999999,0.449999999999999,0.45,0.449999999999999],"base":[0,0,0,0,0,0,0,0,0,0],"x":[2,3,15,4,4,1,36,42,10,51],"y":[3.225,1.225,7.225,6.225,5.225,2.225,8.225,10.225,4.225,9.225],"text":["reorder(activity, value): running<br />value:  2<br />variable: 2022","reorder(activity, value): gaming<br />value:  3<br />variable: 2022","reorder(activity, value): coding<br />value: 15<br />variable: 2022","reorder(activity, value): reading<br />value:  4<br />variable: 2022","reorder(activity, value): writing<br />value:  4<br />variable: 2022","reorder(activity, value): bodyattack<br />value:  1<br />variable: 2022","reorder(activity, value): family<br />value: 36<br />variable: 2022","reorder(activity, value): sleeping<br />value: 42<br />variable: 2022","reorder(activity, value): netflix<br />value: 10<br />variable: 2022","reorder(activity, value): others<br />value: 51<br />variable: 2022"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,196,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"2022","legendgroup":"2022","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":42.0578386605784,"r":7.30593607305936,"b":38.4779299847793,"l":84.0182648401827},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Average Weekly Hours Spent on Activity","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.8,58.8],"tickmode":"array","ticktext":["0","20","40"],"tickvals":[0,20,40],"categoryorder":"array","categoryarray":["0","20","40"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Hours","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,10.6],"tickmode":"array","ticktext":["gaming","bodyattack","running","netflix","writing","reading","coding","family","others","sleeping"],"tickvals":[1,2,3,4,5,6,7,8,9,10],"categoryorder":"array","categoryarray":["gaming","bodyattack","running","netflix","writing","reading","coding","family","others","sleeping"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Activities","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"variable","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"54e414167dfe":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"54e414167dfe","visdat":{"54e414167dfe":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div id="about-you" class="slide section level2">
+<h1>About YOU</h1>
+<p>Please spend few minutes to fill in the google survey form</p>
+<p><a href="https://forms.gle/SB1HGKLvbKxTnTfBA">https://forms.gle/SB1HGKLvbKxTnTfBA</a></p>
+<p>Let run the following code</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gs4_deauth</span>()</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">read_sheet</span>(<span class="st">&quot;1oQXo505Trl_2gXrAmVEkejGFmwBQl-IqVFuRIscRLps&quot;</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Name =</span><span class="dv">2</span>, <span class="at">Background =</span><span class="dv">3</span>, <span class="at">Years =</span><span class="dv">4</span>, <span class="at">DataAnalytics=</span><span class="dv">5</span>, <span class="at">Program=</span><span class="dv">6</span>, <span class="at">SkillLevel=</span><span class="dv">7</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable_material_dark</span>()</span></code></pre></div>
+<!-- Output -->
+<!-- ```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"} -->
+<!-- df %>% -->
+<!--   kbl() %>% -->
+<!--     kable_material_dark() -->
+<!-- ``` -->
+</div>
+<div id="what-are-the-benefits" class="slide section level2">
+<h1>What are the benefits?</h1>
+<p><strong>You do not need to become a data scientist, but you can be knowledgeable and capable with data analytic works</strong></p>
+<ul>
+<li>Collecting data and recording it properly</li>
+<li>The difference and purpose of different database management systems</li>
+<li>Automation and reproduction</li>
+<li>Increase the level of efficiency and productivity</li>
+<li>Transformation</li>
+</ul>
+</div>
+<div id="course-program-and-schedule" class="slide section level2">
+<h1>Course Program and Schedule</h1>
+<div id="htmlwidget-d70610c48a28f5862905" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d70610c48a28f5862905">{"x":{"filter":"top","vertical":false,"filterHTML":"<tr>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1\" data-max=\"28\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"character\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"1\" data-max=\"7\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"disabled\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n  <\/td>\n  <td data-type=\"number\" style=\"vertical-align: top;\">\n    <div class=\"form-group has-feedback\" style=\"margin-bottom: auto;\">\n      <input type=\"search\" placeholder=\"All\" class=\"form-control\" style=\"width: 100%;\"/>\n      <span class=\"glyphicon glyphicon-remove-circle form-control-feedback\"><\/span>\n    <\/div>\n    <div style=\"display: none;position: absolute;width: 200px;opacity: 1\">\n      <div data-min=\"10\" data-max=\"120\"><\/div>\n      <span style=\"float: left;\"><\/span>\n      <span style=\"float: right;\"><\/span>\n    <\/div>\n  <\/td>\n<\/tr>","data":[[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28],["Introduction","Why Code? Why R?","A brief on R statistical computing and its rich libraries","R Markdown","An example of a data analytics project","Data theory","Tidy data","Introduction to RDBMS","A practical example of using Ms Access for business and management","An example of storing spatial data with PostgreSQL and perform analysis on R, Python and QGIS platform","Structure Query Language","Other types of data and database management system","In class group presentation","Useful R functions and libraries for data manipulation and examples","Other popular platforms for data analytics and mining","In class group presentation","An example of data wrangling use Tidyverse and Dplyr packages","Another example of data wrangling for Technical Due Diligence projects","Data visualization with ggplot2 packages and other useful R packages","In class group presentation","An example of EDA on spatial urban data","In class group presentation","A brief introduction to modelling in data analytics and mining","Standard Linear Regression Model on urban data examples","Logistic Regression Model on spatial urban data examples","In class group presentation","Decision Tree Model and Random Forest Algorithm","Network visualization and optimization"],["R and Data Analytics","R and Data Analytics","R and Data Analytics","R and Data Analytics","R and Data Analytics","R and Data Analytics","R and Data Analytics","Data warehouse","Data warehouse","Data warehouse","Data warehouse","Data warehouse","Assignment 1","Data Wrangling and Tools","Data Wrangling and Tools","Assignment 2","Data Wrangling and Tools","Data Wrangling and Tools","Exploratory Data Analysis (EDA)","Assignment 3","Exploratory Data Analysis (EDA)","Assignment 4","Modelling","Modelling","Modelling","Assignment 5","Modelling","Extra curriculum"],[1,1,1,1,1,1,1,2,2,2,2,2,3,3,3,4,4,4,4,5,5,6,6,6,6,7,7,null],[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null],[20,10,60,30,30,10,20,30,30,30,60,30,60,90,30,60,30,30,60,60,120,60,10,50,60,60,120,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>No.<\/th>\n      <th>Content<\/th>\n      <th>Chapter<\/th>\n      <th>Week<\/th>\n      <th>Date<\/th>\n      <th>Minutes<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-left","targets":[1,2,4]},{"className":"dt-center","targets":[0,3,5]}],"autoWidth":true,"order":[],"orderClasses":false,"orderCellsTop":true}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="references-and-reading-materials" class="slide section level2">
+<h1>References and Reading Materials</h1>
+<div class="left" style="float:left;width:48%">
+<ul>
+<li>Books/Videos &amp; Platforms
+<ul>
+<li><a href="https://r4ds.had.co.nz/index.html">R for Data Science</a></li>
+<li><a href="https://ggplot2-book.org/index.html">Elegant Graphics for Data Analysis</a></li>
+<li><a href="https://github.com/">Github</a></li>
+<li><a href="https://www.r-project.org/">R Statistical Computing</a> and <a href="https://www.rstudio.com/">Rstudio</a></li>
+<li><a href="https://www.r-graph-gallery.com/">R Graph Gallery</a></li>
+<li><a href="https://plotly.com/r/">Plotly R Open Source Graphing Library</a></li>
+<li><a href="https://bookdown.org/">Bookdown</a></li>
+<li><a href="https://www.r-bloggers.com/2022/02/best-course-for-data-analytics-free/">Best Course for Data Analytics FREE</a> <!-- - [Stat545](https://stat545.com/index.html) --></li>
+</ul></li>
+<li>R Packages</li>
+<li><a href="https://www.tidyverse.org/">Tidyverse</a>, <a href="https://dplyr.tidyverse.org/">Dplyr</a>, <a href="https://ggplot2.tidyverse.org/">Ggplot2</a>, <a href="https://rstudio.github.io/DT/">DT</a>, <a href="https://rattle.togaware.com/">Rattle</a>, <a href="https://radiant-rstats.github.io/docs/install.html">Radiant</a> <a href="https://plotly.com/r/">Plotly</a>, <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">kableExtra</a></li>
+</ul>
+</div>
+<div class="left" style="float:left;width:48%">
+<p><img src="assets/img/01_tidyverse_data_science.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="expectations-and-requirements" class="slide section level2">
+<h1>Expectations and Requirements</h1>
+<p><img src="week1-01-intro_files/figure-slidy/unnamed-chunk-7-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="a-brief-on-r-statistical-computing-program" class="slide section level2">
+<h1>A Brief on R Statistical Computing Program</h1>
+<div class="left" style="float:left;width:48%">
+<div class="left" style="float:left;width:48%">
+<p><a href="https://computationalbiomed.hms.harvard.edu/people/robert-gentleman">Robert Gentleman</a> <img src="https://computationalbiomed.hms.harvard.edu/sites/g/files/mcu1016/files/profile-photos/Robert-Gentleman-200x240.png" width="80%" style="display: block; margin: auto;" /> Harvard Medical School</p>
+</div>
+<div class="left" style="float:left;width:48%">
+<p><a href="https://www.stat.auckland.ac.nz/~ihaka/">Ross Ihaka</a> <img src="https://www.stat.auckland.ac.nz/~ihaka/images/ross-ihaka.jpg" width="65%" style="display: block; margin: auto;" /> Professor of Statistics at the University of Auckland</p>
+</div>
+<ul>
+<li>1991 S implementation</li>
+<li>1993 Published R Code</li>
+<li>1995 Made R to be open source and FREE</li>
+</ul>
+</div>
+<div class="left" style="float:left;width:48%">
+<p>S language was developed in BELL Lab since 1976</p>
+<p><img src="https://www.telecomreview.com/images/stories/2020/03/Nokia_Bell_Labs_achieves_world_record_in_fiber_optics-article.jpg" width="100%" style="display: block; margin: auto;" /></p>
+<ul>
+<li>9 Nobels Recipients</li>
+<li>AMPL Optimizer</li>
+<li>C Programing Language</li>
+</ul>
+</div>
+</div>
+<div id="an-introduction-to-r-1" class="slide section level2">
+<h1>An Introduction to R (1)</h1>
+<div class="left" style="float:left;width:30%">
+<p><a href="https://intro2r.com/">An Introduction to R</a> by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto &amp; David Lusseau</p>
+<p><img src="https://intro2r.com/images/cover_v3.png" width="65%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="left" style="float:left;width:30%">
+<p><a href="https://r4ds.had.co.nz/index.html">R for Data Science</a> - Hadley Wickham &amp; Garrett Grolemund.</p>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png" width="65%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="left" style="float:left;width:40%">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XcBLEVknqvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9kYUGMg_14s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</div>
+</div>
+<div id="an-introduction-to-r-2" class="slide section level2">
+<h1>An Introduction to R (2)</h1>
+<div class="left" style="float:left;width:25%">
+<ul>
+<li>Working directory</li>
+<li>File name and structure</li>
+<li>File names</li>
+<li>Project documentation</li>
+<li>Data types</li>
+<li>Data structures</li>
+</ul>
+<p><a href="https://rstudio.cloud/">https://rstudio.cloud/</a></p>
+</div>
+<div class="left" style="float:left;width:75%">
+<p><img src="assets/img/rstudio.png" width="95%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="data-structures-1" class="slide section level2">
+<h1>Data Structures (1)</h1>
+<div class="left" style="float:left;width:48%">
+<p><img src="https://intro2r.com/images/scal_vec.png" width="45%" style="display: block; margin: auto;" /></p>
+<p><img src="https://intro2r.com/images/mat_array.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="left" style="float:left;width:48%">
+<p>Matrix</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_mat</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    1    2    3    4
+## [2,]    5    6    7    8
+## [3,]    9   10   11   12
+## [4,]   13   14   15   16</code></pre>
+<p>Array</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">16</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">2</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>my_array</span></code></pre></div>
+<pre><code>## , , 1
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    3    5    7
+## [2,]    2    4    6    8
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]    9   11   13   15
+## [2,]   10   12   14   16</code></pre>
+</div>
+</div>
+<div id="data-structures-2" class="slide section level2">
+<h1>Data Structures (2)</h1>
+<div class="left" style="float:left;width:45%">
+<p>List</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>list_1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;orange&quot;</span>),</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>               <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>               <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">3</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>list_1</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;black&quot;  &quot;yellow&quot; &quot;orange&quot;
+## 
+## [[2]]
+## [1]  TRUE  TRUE FALSE  TRUE FALSE FALSE
+## 
+## [[3]]
+##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6</code></pre>
+</div>
+<div class="left" style="float:left;width:45%">
+<p>Data Frame</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>p.height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">180</span>, <span class="dv">155</span>, <span class="dv">160</span>, <span class="dv">167</span>, <span class="dv">181</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>p.weight <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">50</span>, <span class="dv">52</span>, <span class="dv">58</span>, <span class="dv">70</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>p.names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Joanna&quot;</span>, <span class="st">&quot;Charlotte&quot;</span>, <span class="st">&quot;Helen&quot;</span>, <span class="st">&quot;Karen&quot;</span>, <span class="st">&quot;Amy&quot;</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>dataf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">height =</span> p.height, <span class="at">weight =</span> p.weight, <span class="at">names =</span> p.names)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>dataf</span></code></pre></div>
+<pre><code>##   height weight     names
+## 1    180     65    Joanna
+## 2    155     50 Charlotte
+## 3    160     52     Helen
+## 4    167     58     Karen
+## 5    181     70       Amy</code></pre>
+</div>
+</div>
+<div id="data-wrangling" class="slide section level2">
+<h1>Data Wrangling</h1>
+<p><img src="https://favtutor.com/resources/images/uploads/DATA_WRANGLING.jpg" width="80%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="data-importing" class="slide section level2">
+<h1>Data Importing</h1>
+<div class="left" style="float:left;width:45%">
+<p>Common data files</p>
+<ul>
+<li>text/flat files</li>
+<li>cvs/excel files</li>
+<li>tables from databases</li>
+</ul>
+<p><a href="http://www.sthda.com/english/wiki/importing-data-into-r">Importing data into R</a></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/images/importing-data-into-r.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="left" style="float:left;width:45%">
+<p>R Packages and function</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read tab separated values</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read.delim</span>(<span class="fu">file.choose</span>())</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read comma (&quot;,&quot;) separated values</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="fu">file.choose</span>())</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read semicolon (&quot;;&quot;) separated values</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv2</span>(<span class="fu">file.choose</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;readr&quot;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Read tab separated values</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="fu">file.choose</span>())</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read comma (&quot;,&quot;) separated values</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv</span>(<span class="fu">file.choose</span>())</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read semicolon (&quot;;&quot;) separated values</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">read_csv2</span>(<span class="fu">file.choose</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#reading sheet in an excel file</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span><span class="fu">read_excel</span>(<span class="st">&quot;../Data/introduction.xlsx&quot;</span>,<span class="at">sheet=</span><span class="st">&quot;bio-time&quot;</span>,<span class="at">skip =</span> <span class="dv">0</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="data-exporting" class="slide section level2">
+<h1>Data Exporting</h1>
+<div class="left" style="float:left;width:45%">
+<p>Common data files</p>
+<ul>
+<li>text/flat files</li>
+<li>cvs/excel files</li>
+<li>tables from databases</li>
+</ul>
+<p><a href="http://www.sthda.com/english/wiki/exporting-data-from-r">Exporting data from R</a></p>
+<p><img src="http://www.sthda.com/sthda/RDoc/images/exporting-data-from-r.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+<div class="left" style="float:left;width:45%">
+<p>R Packages and function</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading mtcars data</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Write data to txt file: tab separated values</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sep = &quot;\t&quot;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(mtcars, <span class="at">file =</span> <span class="st">&quot;mtcars.txt&quot;</span>, <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">row.names =</span> <span class="cn">TRUE</span>, <span class="at">col.names =</span> <span class="cn">NA</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Write data to csv files:  </span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># decimal point = &quot;.&quot; and value separators = comma (&quot;,&quot;)</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(mtcars, <span class="at">file =</span> <span class="st">&quot;mtcars.csv&quot;</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Write data to csv files:</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># decimal point = comma (&quot;,&quot;) and value separators = semicolon (&quot;;&quot;)</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv2</span>(mtcars, <span class="at">file =</span> <span class="st">&quot;mtcars.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Loading mtcars data</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;readr&quot;</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Writing mtcars data to a tsv file</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(mtcars, <span class="at">path =</span> <span class="st">&quot;mtcars.txt&quot;</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Writing mtcars data to a csv file</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(mtcars, <span class="at">path =</span> <span class="st">&quot;mtcars.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;xlsx&quot;</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the first data set in a new workbook</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(USArrests, <span class="at">file =</span> <span class="st">&quot;myworkbook.xlsx&quot;</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">sheetName =</span> <span class="st">&quot;USA-ARRESTS&quot;</span>, <span class="at">append =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a second data set in a new worksheet</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(mtcars, <span class="at">file =</span> <span class="st">&quot;myworkbook.xlsx&quot;</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">sheetName=</span><span class="st">&quot;MTCARS&quot;</span>, <span class="at">append=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="r-markdown" class="slide section level2">
+<h1>R Markdown</h1>
+<p><strong>What you see is What You Mean (WYSIWYM) vs What You See is What You Get (WYSIWYG)</strong></p>
+<p><a href="https://rmarkdown.rstudio.com/" class="uri">https://rmarkdown.rstudio.com/</a></p>
+<p><a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a></p>
+<p><a href="https://github.com/rstudio/rmarkdown-book" class="uri">https://github.com/rstudio/rmarkdown-book</a></p>
+<p><a href="https://bookdown.org/" class="uri">https://bookdown.org/</a></p>
+<p><strong>Examples</strong></p>
+<ul>
+<li>Rmarkdown Book</li>
+<li><a href="https://rstudio.cloud/project/1131299">Hanjin Shipyward TDD</a></li>
+<li><a href="https://namkyodai.github.io/post/tdd/">Technical Due Diligence Automation with R Markdown</a></li>
+</ul>
+</div>
+<div id="examples" class="slide section level2">
+<h1>Examples</h1>
+<div class="left" style="float:left;width:45%">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GTs5ZQ6XwUM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div class="left" style="float:left;width:45%">
+<ul>
+<li><a href="https://namkyodai.github.io/post/2019-09-15-excel-combine/">Energy Audit</a></li>
+<li>EDA on urban weather data</li>
+<li><a href="https://github.com/CityScope/CSL_HCMC">A Multiple Stakeholder Approach in Urban Design and Planning using MIT CityScope Platform</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/namkyodai/BusinessAnalytics/master/ExcelSheetCombine/ch05_fig_energy_correlation.png" width="70%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="a-multiple-stakeholder-approach-in-urban-design-and-planning-using-mit-cityscope-platform" class="slide section level2">
+<h1>A Multiple Stakeholder Approach in Urban Design and Planning using MIT CityScope Platform</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/m7_ErZqDRaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p><a href="https://cityscope.media.mit.edu/CS_cityscopeJS/?cityscope=hcm_scenario_0">Simulation</a></p>
+<p><a href="https://github.com/CityScope/CSL_HCMC">CSL_HCMC Github</a></p>
+</div>
+
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "week1-01-intro_files/mathjax-local/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+</body>
+</html>

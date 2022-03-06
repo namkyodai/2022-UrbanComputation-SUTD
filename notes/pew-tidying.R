@@ -1,0 +1,7 @@
+library(dplyr)
+library(reshape2)
+df=read.csv("tidy-data/data/pew-raw.csv", sep=",", header=TRUE)
+df <-data.frame(df)
+molten.df <- melt(df, id = c("X","religion"))
+colnames(molten.df)<- c('no','religion','income','freq')
+molten.df <- molten.df%>%select(c(2,3,4))
