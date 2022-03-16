@@ -1,0 +1,23 @@
+---
+title     : "Notebook on Technical Due Diligence"
+subtitle  : "Cebu Mactan International Airport"
+author    : "[Nam LE](https://namkyodai.github.io)"
+date      : "7-March-2022"
+---
+
+## Reading the Tidydata File
+
+
+
+```{r echo=FALSE, message=FALSE,warning=FALSE}
+library(readxl)
+library(DT)
+library(dplyr)
+library(pander)
+library(writexl)
+df=read_excel("2022-mactan-tdd-airport.xlsx",sheet="Capex",skip = 0)
+library(DT)
+p<-datatable(df)
+p
+```
+

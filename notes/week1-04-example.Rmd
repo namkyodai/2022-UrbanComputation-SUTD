@@ -1,0 +1,484 @@
+---
+title     : "Urban Data & Methods II: Computational Urban Analysis"
+subtitle  : "Week 1 - Example"
+author    : "[Nam LE](https://namkyodai.github.io)"
+date      : "16-March-2022"
+output    : 
+  slidy_presentation:
+#   css: assets/css/styles.css
+#   css: assets/css/ribbons.css
+    mathjax: local
+    self_contained: false
+    font_adjustment: 0
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    incremental: false #for bullet increment
+    highlight: pygments
+    footer: "Copyright of ASQ Vietnam Co. Ltd - Prepared for course at SUTD"
+    includes:
+      in_header: assets/layouts/header.html
+      #before_body: doc_prefix.html
+      #after_body: doc_suffix.html
+    duration: 45
+---
+
+
+
+## The Data Analytics Process
+
+
+```{r, echo=FALSE, out.width="60%", fig.cap="", fig.align = 'center'}
+knitr::include_graphics("assets/img/data-science-explore.png")
+```
+
+- Housing Price
+- Energy Audit
+- Technical Due Diligence
+
+## Housing Price - Overview
+
+This example is extracted from the book named [Data Analytics Coding Fundamental](https://bookdown.org/martin_monkman/DataAnalyticsCodingFundamentals/walkthrough.html).
+
+- **Objectives:** To understand the change of New Housing Price Index (NHPI) in different regions of Canada over time
+
+- **Data:** [https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1810020501](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1810020501)
+
+```{r, echo=FALSE, out.width="40%", fig.cap="", fig.align = 'center'}
+knitr::include_graphics("./week1-04-examples/canadahousing/NHPI_plot.png")
+```
+
+
+
+<!-- <div class='left' style='float:left;width:48%'> -->
+<!-- </div> -->
+<!-- <div class='left' style='float:left;width:48%'> -->
+<!-- </div> -->
+
+
+## Housing Price - R Packages
+
+```{r, echo=TRUE, include = TRUE,message=FALSE,warning=FALSE}
+#Loading necessary packages
+library(tidyverse)
+library(lubridate)  # date functions
+library(scales)     # extending {ggplot2}
+library(glue)       # for gluing strings together
+library(tufte)
+#
+# utilities
+library(cansim)     # data extract
+library(janitor)    # for `clean_names()`
+library(knitr)      # for publication - includes `kable()` for tables
+library(kableExtra) # - format kable tables
+library(flextable)  # another table formatting package
+source("./week1-04-examples/canadahousing/f_monthyear.R")
+source("./week1-04-examples/canadahousing/bida_chart_theme.R")
+
+
+```
+
+
+
+
+
+## Housing Price - Import Data
+
+<div class='left' style='float:left;width:30%'>
+Code
+```{r, echo=TRUE, include = TRUE,results = 'hide',message=FALSE,warning=FALSE}
+library(cansim) #this is R package 
+#for extracting Canadian Statistics
+table_id <- "18-10-0205-01"
+thedata <- get_cansim(table_id)
+thedata
+```
+
+</div>
+
+<div class='left' style='float:left;width:65%'>
+Output
+```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"}
+thedata
+```
+</div>
+
+
+
+
+
+
+
+## Housing Price - Understanding the data
+
+<div class='left' style='float:left;width:30%'>
+Code
+```{r, echo=TRUE, include = TRUE,results = 'hide',message=FALSE,warning=FALSE}
+get_cansim_table_overview(table_id)
+ls.str(thedata)
+
+```
+
+</div>
+
+<div class='left' style='float:left;width:65%'>
+Output
+```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"}
+thedata %>%
+  group_by(GEO, GeoUID) %>%
+  tally()
+```
+</div>
+
+
+## Housing Price -  Cleaning the data
+
+
+Code
+```{r, echo=TRUE, include = TRUE,results = 'hide',message=FALSE,warning=FALSE}
+library(janitor)
+thedata <- janitor::clean_names(thedata)
+library(tidyverse)
+library(lubridate)
+thedata <- thedata %>%
+    mutate(ref_date = ymd(ref_date, truncated = 2)) 
+head(thedata)
+```
+Output
+```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"}
+head(thedata)
+```
+
+
+## Housing Price -  Filtering Data
+
+Code
+```{r, echo=TRUE, include = TRUE,results = 'hide',message=FALSE,warning=FALSE}
+startdate <- as.Date("2007-01-01")
+# filter to have BC and Canada
+thedata_BC_Can <- thedata %>%
+  filter(ref_date >= startdate) %>%
+  filter(geo %in% c("British Columbia", "Canada"), 
+         new_housing_price_indexes == "Total (house and land)") %>%
+  select(ref_date, geo, new_housing_price_indexes, value)
+
+```
+
+Output
+```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"}
+head(thedata_BC_Can)
+```
+
+## Housing Price -  Visualize Tables (1)
+
+Code
+```{r, echo=TRUE, include = TRUE,results = 'hide',message=FALSE,warning=FALSE}
+NHPI_table <- thedata_BC_Can %>%
+  filter(geo == "British Columbia") %>%
+  mutate(year = year(ref_date),
+         month = month(ref_date, label = TRUE)) %>%
+  select(year, month, value) %>%
+  pivot_wider(names_from = month, values_from = value) %>%
+  arrange(desc(year))
+
+# display the table
+head(NHPI_table)
+```
+
+Output
+```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"}
+knitr::kable(head(NHPI_table),"html")
+```
+
+
+## Housing Price -  Visualize Tables (2)
+
+```{r, echo=TRUE, include = TRUE,results = 'hide',message=FALSE,warning=FALSE}
+NHPI_table2 <- NHPI_table %>%
+  mutate(annual_avg = rowMeans(NHPI_table[-1], na.rm = TRUE))
+head(NHPI_table2)
+```
+
+Output
+```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"}
+knitr::kable(head(NHPI_table2), "simple")
+#head(data.frame(NHPI_table2))
+#print.data.frame(head(NHPI_table2))
+```
+
+
+
+## Housing Price -  Visualize Tables (3)
+
+Code
+```{r, echo=TRUE, include = TRUE,results = 'hide',message=FALSE,warning=FALSE}
+NHPI_table3 <- thedata_BC_Can %>%
+  filter(geo == "British Columbia") %>%
+  mutate(year = year(ref_date),
+         month = month(ref_date, label = TRUE)) %>%
+  select(year, month, value) %>%
+  group_by(year) %>%
+  mutate(annual_avg = mean(value, na.rm = TRUE)) %>%
+  pivot_wider(names_from = month, values_from = value) %>%
+  arrange(desc(year))
+
+
+```
+
+Output
+```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"}
+knitr::kable(head(NHPI_table3))
+```
+
+
+
+## Housing Price -  Visualize Tables (4)
+
+Code
+```{r, echo=TRUE, include = TRUE,results = 'hide',message=FALSE,warning=FALSE}
+NHPI_table4 <- NHPI_table %>%
+  rowwise() %>% 
+  mutate(annual_avg = mean(c(Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec), na.rm = TRUE))
+
+```
+
+Output
+```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"}
+knitr::kable(head(NHPI_table4))
+```
+
+
+## Housing Price -  Visualize Tables (5)
+
+Code
+```{r, echo=TRUE, include = TRUE,results = 'hide',message=FALSE,warning=FALSE}
+NHPI_table4 %>%
+  flextable() %>% 
+#  add_footer(glue::glue("Source: Statistics Canada, Table {table_id}"))
+  add_footer_row(values = glue::glue("Source: Statistics Canada, Table {table_id}"), colwidths = 14)
+```
+
+Output
+```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"}
+knitr::kable(NHPI_table4)
+```
+
+## Housing Price -  Visualize Tables (6)
+
+<!-- <div class='left' style='float:left;width:48%'> -->
+<!-- </div> -->
+<!-- <div class='left' style='float:left;width:48%'> -->
+<!-- </div> -->
+
+<div class='left' style='float:left;width:48%'>
+Code
+```{r, echo=TRUE, include = TRUE,results = 'hide',message=FALSE,warning=FALSE}
+# create summary table
+tbl_month_BC <-
+thedata_BC_Can %>%
+  filter(geo == "British Columbia") %>%
+  arrange(ref_date) %>%
+  # calculate percent change stats
+  get_mom_stats() %>%
+  get_yoy_stats() %>%
+  # pull year and month
+  mutate(year = year(ref_date),
+         month = month(ref_date, label = TRUE)) %>%
+  # select relevant columns, rename as necessary
+  select(year, month, value, 
+         "from previous month" = mom_chg, 
+         "from same month, previous year" = yoy_chg) %>%
+  arrange(desc(year), desc(month)) %>%
+  # just print rows 1 to 13
+  slice(1:13)
+# print table with {kableExtra} formatting  
+tbl_month_BC %>%
+  kable(caption = "NHPI, British Columbia", digits = 1) %>%
+  kable_styling(bootstrap_options = "striped") %>%
+  row_spec(0, bold = T, font_size = 14) %>%
+  row_spec(1, bold = T) %>%
+  add_header_above(c(" " = 3, "index point change" = 2), font_size = 14)
+```
+
+</div>
+
+<div class='left' style='float:left;width:48%'>
+Output
+```{r, echo=FALSE, include = TRUE,message=FALSE,warning=FALSE, size= "small"}
+knitr::kable(tbl_month_BC)
+```
+</div>
+
+## Housing Price -  Plotting (1)
+
+<!-- <div class='left' style='float:left;width:48%'> -->
+<!-- </div> -->
+<!-- <div class='left' style='float:left;width:48%'> -->
+<!-- </div> -->
+
+<div class='left' style='float:left;width:48%'>
+Code
+```{r, echo=TRUE, include = TRUE, results = 'hide',out.width="40%", fig.cap="", fig.align = 'center',collapse=TRUE, message=FALSE,warning=FALSE}
+# PLOT!
+# basic
+p<-ggplot(thedata_BC_Can, aes(x=ref_date, y=value, group=geo)) + 
+  geom_line()
+```
+</div>
+
+<div class='left' style='float:left;width:48%'>
+Output
+```{r, echo=FALSE, include = TRUE,out.width="80%", fig.cap="", fig.align = 'center',collapse=TRUE, message=FALSE,warning=FALSE}
+p
+```
+</div>
+
+
+
+## Housing Price -  Plotting (2)
+
+<!-- <div class='left' style='float:left;width:48%'> -->
+<!-- </div> -->
+<!-- <div class='left' style='float:left;width:48%'> -->
+<!-- </div> -->
+
+<div class='left' style='float:left;width:48%'>
+Code
+```{r, echo=TRUE, include = TRUE, results = 'hide',out.width="40%", fig.cap="", fig.align = 'center',collapse=TRUE, message=FALSE,warning=FALSE}
+#
+# with formatting applied
+dataplot <- ggplot(thedata_BC_Can, aes(x=ref_date, y=value, colour=geo)) + 
+  geom_line(size=1.5) 
+```
+</div>
+
+
+<div class='left' style='float:left;width:48%'>
+Output
+```{r, echo=FALSE, include = TRUE,out.width="80%", fig.cap="", fig.align = 'center',collapse=TRUE, message=FALSE,warning=FALSE}
+dataplot
+```
+</div>
+
+
+
+## Housing Price -  Plotting (3)
+
+<!-- <div class='left' style='float:left;width:48%'> -->
+<!-- </div> -->
+<!-- <div class='left' style='float:left;width:48%'> -->
+<!-- </div> -->
+
+<div class='left' style='float:left;width:48%'>
+Code
+```{r, echo=TRUE, include = TRUE, results = 'hide',out.width="40%", fig.cap="", fig.align = 'center',collapse=TRUE, message=FALSE,warning=FALSE}
+#
+# with formatting applied
+dataplot2 <- dataplot +
+  scale_x_date(date_breaks = "2 years", labels = year) +
+  scale_y_continuous(labels = comma, limits = c(80, 125)) +
+  scale_colour_manual(name=NULL,
+                      breaks=c("Canada", "British Columbia"),
+                      labels=c("Canada", "British Columbia"), 
+                      values=c("#325A80", "#CCB550")) +
+  bida_chart_theme
+```
+</div>
+
+<div class='left' style='float:left;width:48%'>
+Output
+```{r, echo=FALSE, include = TRUE,out.width="80%", fig.cap="", fig.align = 'center',collapse=TRUE, message=FALSE,warning=FALSE}
+dataplot2
+```
+</div>
+
+
+## Housing Price -  Plotting (4)
+
+<div class='left' style='float:left;width:48%'>
+Code
+```{r, echo=TRUE, include = TRUE, results = 'hide', collapse=TRUE,  message=FALSE,warning=FALSE}
+# experiments with ggplot2's new subtitle and caption options
+NHPI_title <- as.character("New Housing Price Index, Canada & B.C.")
+NHPI_subtitle <- as.character("December 2016 = 100")
+NHPI_caption <- as.character("Source: Statistics Canada, CANSIM table 18-10-0205-01")
+# add titles / X-Y axis labels
+NHPI_plot <- dataplot2 +
+  labs(title = NHPI_title,
+       subtitle = NHPI_subtitle,
+       caption = NHPI_caption, 
+       x = NULL, y = "NHPI (Dec. 2016 = 100)") 
+```
+</div>
+<div class='left' style='float:left;width:48%'>
+Output
+```{r, echo=FALSE, include = TRUE,out.width="80%", fig.cap="", fig.align = 'center',collapse=TRUE, message=FALSE,warning=FALSE}
+NHPI_plot
+```
+</div>
+
+
+
+
+
+
+
+
+
+## Energy Audit
+This project was conducted in 2018 when I was with GHD. I was the PM for a consultancy project of about 1 million USD for 6 months. The project includes following scope
+- Reliability check of all major equipment and systems of 20+ large pump stations in Metro Manila
+- Energy Audit
+- Conceptual design to upgrade the system
+
+> "Data scientists spend 60% of their time on cleaning and organizing data. Collecting data sets comes second at 19% of their time, meaning data scientists spend around 80% of their time on preparing and managing data for analysis.."
+
+
+
+[https://namkyodai.github.io/post/2019-09-15-excel-combine/](https://namkyodai.github.io/post/2019-09-15-excel-combine/)
+
+
+
+
+
+
+## Technical Due Diligence
+
+<div class='left' style='float:left;width:48%'>
+
+Technical Due Diligence (TDD) is an engineering management process for evaluation and assessment on operation and condition of assets of engineering systems (e.g. buildings, industrial plants, factories). TDD can be considered as a simple application of the Asset Management Framework.
+
+- Buy/Acquire the property
+- Execute an intervention strategy/program for the targeted engineering systems at a set of points in time
+
+</div>
+<div class='left' style='float:left;width:48%'>
+[https://namkyodai.github.io/post/tdd/](https://namkyodai.github.io/post/tdd/)
+  
+<img src="../visual/tdd01.png" width="700">
+
+</div>
+
+
+
+
+## Earned Value Management (EVM)
+
+
+<div class='left' style='float:left;width:48%'>
+
+Earned Value Management (EVM) is a widely used method, if not to say, a imperative method in project management. Without the EVM, the Project Managers and stakeholders (PM) cannot track and monitor the Progress and Schedule, cannot understand the causes of problems and delays.
+
+In a large scale engineering project, Contractors shall have an excellent and FULL TIME experienced Planners who can confidently perform EVM analysis and report to the PM and the project team weekly and monthly. The analysis report shall includes
+
+- Updated Project Schedule with actual progress;
+- Comparison between the Actual Progress vs Baselines;
+- Critical Path Analysis (CPA) and identification of factors contributing to especially delays.
+
+</div>
+<div class='left' style='float:left;width:48%'>
+[https://namkyodai.github.io/post/2019-10-07-evm/](https://namkyodai.github.io/post/2019-10-07-evm/)
+  
+<img src="../visual/evm.png" width="700">
+
+</div>
