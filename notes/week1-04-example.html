@@ -229,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="left" style="float:left;width:65%">
 <p>Output</p>
-<pre><code>## # A tibble: 59,160 x 21
+<pre><code>## # A tibble: 59,280 x 21
 ##    REF_DATE GEO     DGUID UOM   UOM_ID SCALAR_FACTOR SCALAR_ID VECTOR COORDINATE
 ##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;     
 ##  1 1981-01  Canada  2016~ Inde~ 347    units         0         v1119~ 1.1       
@@ -242,12 +242,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8 1981-01  Newfou~ 2016~ Inde~ 347    units         0         v1119~ 3.2       
 ##  9 1981-01  Newfou~ 2016~ Inde~ 347    units         0         v1119~ 3.3       
 ## 10 1981-01  St. Jo~ 2011~ Inde~ 347    units         0         v1119~ 4.1       
-## # ... with 59,150 more rows, and 12 more variables: VALUE &lt;dbl&gt;, STATUS &lt;chr&gt;,
+## # ... with 59,270 more rows, and 12 more variables: VALUE &lt;dbl&gt;, STATUS &lt;chr&gt;,
 ## #   SYMBOL &lt;chr&gt;, TERMINATED &lt;chr&gt;, DECIMALS &lt;chr&gt;, GeoUID &lt;chr&gt;,
-## #   `Hierarchy for GEO` &lt;chr&gt;,
-## #   `Classification Code for New housing price indexes` &lt;chr&gt;,
-## #   `Hierarchy for New housing price indexes` &lt;chr&gt;, val_norm &lt;dbl&gt;,
-## #   Date &lt;date&gt;, `New housing price indexes` &lt;fct&gt;</code></pre>
+## #   Hierarchy for GEO &lt;chr&gt;,
+## #   Classification Code for New housing price indexes &lt;chr&gt;,
+## #   Hierarchy for New housing price indexes &lt;chr&gt;, val_norm &lt;dbl&gt;, Date &lt;date&gt;,
+## #   New housing price indexes &lt;fct&gt;</code></pre>
 </div>
 </div>
 <div id="housing-price---understanding-the-data" class="slide section level2">
@@ -263,16 +263,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # Groups:   GEO [40]
 ##    GEO                                 GeoUID     n
 ##    &lt;chr&gt;                               &lt;chr&gt;  &lt;int&gt;
-##  1 Alberta                             48      1479
-##  2 Atlantic Region                     1       1479
-##  3 British Columbia                    59      1479
-##  4 Calgary, Alberta                    825     1479
-##  5 Canada                              11124   1479
-##  6 Charlottetown, Prince Edward Island 105     1479
-##  7 Edmonton, Alberta                   835     1479
-##  8 Greater Sudbury, Ontario            580     1479
-##  9 Guelph, Ontario                     550     1479
-## 10 Halifax, Nova Scotia                205     1479
+##  1 Alberta                             48      1482
+##  2 Atlantic Region                     1       1482
+##  3 British Columbia                    59      1482
+##  4 Calgary, Alberta                    825     1482
+##  5 Canada                              11124   1482
+##  6 Charlottetown, Prince Edward Island 105     1482
+##  7 Edmonton, Alberta                   835     1482
+##  8 Greater Sudbury, Ontario            580     1482
+##  9 Guelph, Ontario                     550     1482
+## 10 Halifax, Nova Scotia                205     1482
 ## # ... with 30 more rows</code></pre>
 </div>
 </div>
@@ -390,7 +390,7 @@ Dec
 126.2
 </td>
 <td style="text-align:right;">
-NA
+127.0
 </td>
 <td style="text-align:right;">
 NA
@@ -660,6 +660,7 @@ NA
 <tr class="odd">
 <td align="right">2022</td>
 <td align="right">126.2</td>
+<td align="right">127.0</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
@@ -670,8 +671,7 @@ NA
 <td align="right">NA</td>
 <td align="right">NA</td>
 <td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">126.2000</td>
+<td align="right">126.6000</td>
 </tr>
 <tr class="even">
 <td align="right">2021</td>
@@ -822,13 +822,13 @@ Dec
 2022
 </td>
 <td style="text-align:right;">
-126.2000
+126.6000
 </td>
 <td style="text-align:right;">
 126.2
 </td>
 <td style="text-align:right;">
-NA
+127.0
 </td>
 <td style="text-align:right;">
 NA
@@ -1147,7 +1147,7 @@ annual_avg
 126.2
 </td>
 <td style="text-align:right;">
-NA
+127.0
 </td>
 <td style="text-align:right;">
 NA
@@ -1180,7 +1180,7 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-126.2000
+126.6000
 </td>
 </tr>
 <tr>
@@ -1470,7 +1470,7 @@ annual_avg
 126.2
 </td>
 <td style="text-align:right;">
-NA
+127.0
 </td>
 <td style="text-align:right;">
 NA
@@ -1503,7 +1503,7 @@ NA
 NA
 </td>
 <td style="text-align:right;">
-126.20000
+126.60000
 </td>
 </tr>
 <tr>
@@ -2231,6 +2231,23 @@ from same month, previous year
 2022
 </td>
 <td style="text-align:left;">
+Feb
+</td>
+<td style="text-align:right;">
+127.0
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+10.7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2022
+</td>
+<td style="text-align:left;">
 Jan
 </td>
 <td style="text-align:right;">
@@ -2428,23 +2445,6 @@ Feb
 </td>
 <td style="text-align:right;">
 10.4
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-2021
-</td>
-<td style="text-align:left;">
-Jan
-</td>
-<td style="text-align:right;">
-112.3
-</td>
-<td style="text-align:right;">
-0.4
-</td>
-<td style="text-align:right;">
-6.8
 </td>
 </tr>
 </tbody>
