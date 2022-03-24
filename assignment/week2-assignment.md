@@ -1,17 +1,10 @@
----
-#layout: post
-title: Week 2 - Assignment
-date: 2022-03-24T23:30:45+08:00
-tags: [SQL, PostgreSQL, QGIS, PostGIS, dbeaver]
----
-
 Hallo All,
 
-Hope you enjoyed week 2 lecture ^_^. if not, then my apology.
+Hope you enjoyed week 2 lecture ^_^ :smile: :smile: :smile:. if not, then my apology :sweat_smile:.
 
-As discussed, our class will have 2 groups and the expectation is that members of the groups shall meet and work together and help each other so all members are able to perform the same operation.
+As discussed, our class will have 2 groups :ok_woman: :ok_man: and the expectation is that members of the groups shall meet and work together and help each other so all members are able to perform the same operation.
 
-This week assignment will be pretty simple, that is to practice some basic SQL syntax so you can understand the importance of relational database management system (RDBMS) and later be able to communicate with other groups (e.g. IT, business, marketing) when chances arrive :).
+This week assignment will be pretty simple :innocent:, that is to practice some basic SQL syntax so you can understand the importance of relational database management system (RDBMS) and later be able to communicate with other groups (e.g. IT, business, marketing) when chances arrive :wink:.
 
 
 # GROUP members
