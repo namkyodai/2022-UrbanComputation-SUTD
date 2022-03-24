@@ -8,6 +8,7 @@ This week assignment will be pretty simple :innocent:, that is to practice some 
 
 
 # GROUP members
+
 | Group 1 | Group 2 |
 |---------|---------|
 | Xiaoyan | Yiming  |
@@ -17,13 +18,14 @@ This week assignment will be pretty simple :innocent:, that is to practice some 
 | Angela  | Liting  |
 
 
+
 # Requirements for both two groups
 
 ## Dataset
 - Dataset for group 1 is **dump-sghousingprice-202203250215.sql**
 - Dataset for group 2 is **dump-propertylistings-202203250237.sql**
 
-you can file these two sql dataset saved under [2022-UrbanComputation-SUTD/notes/sg-houseprice/sql](https://github.com/namkyodai/2022-UrbanComputation-SUTD/tree/main/notes/sg-houseprice/sql)
+you can find these two sql dataset saved under [2022-UrbanComputation-SUTD/notes/sg-houseprice/sql](https://github.com/namkyodai/2022-UrbanComputation-SUTD/tree/main/notes/sg-houseprice/sql)
 
 
 ## Exercise 1 - SQL Practicing
