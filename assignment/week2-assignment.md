@@ -23,7 +23,7 @@ This week assignment will be pretty simple :innocent:, that is to practice some 
 - Dataset for group 1 is **dump-sghousingprice-202203250215.sql**
 - Dataset for group 2 is **dump-propertylistings-202203250237.sql**
 
-you can file these two sql dataset saved under 2022-UrbanComputation-SUTD\notes\sg-houseprice\sql
+you can file these two sql dataset saved under [2022-UrbanComputation-SUTD/notes/sg-houseprice/sql](https://github.com/namkyodai/2022-UrbanComputation-SUTD/tree/main/notes/sg-houseprice/sql)
 
 
 ## Exercise 1 - SQL Practicing
@@ -63,3 +63,11 @@ There is no limitation of SQL you will use, however, you can try first with the 
 - Step 5 - (Optional) - Create a connection to PostgreSQL databases from R environment and copy these SQL that you create in step 3 and 4 and run them in R.
 
 - Step 6 (Optional) - Anyone of you if wish to learn more about [PostGIS](https://postgis.net/), visit its website and
+
+## Important notes
+- If you have any issue, pls go to and post issue [https://github.com/namkyodai/2022-UrbanComputation-SUTD/issues](https://github.com/namkyodai/2022-UrbanComputation-SUTD/issues) so I or other members of the class can address timely and all of us can see the solutions
+- You can also upload your solutions under issue
+
+Cheers
+
+Nam
