@@ -5,22 +5,26 @@ setwd(dirname(getActiveDocumentContext()$path))
 
 library(readxl)
 library(DT)
-library(dplyr)
+library(dplyr) # grammar of data munipulation
 library(pander)
 library(writexl)
 epsilon=10000000
 library(reshape)
-library(ggplot2)
+library(ggplot2) # for graphs --> 
 library(psych)
 library(lubridate)
 library(scales)
 library(tidyr)
 
+# read rawdata
 df=read_excel("data.xlsx",sheet="Capex",skip = 0)
 
 
 df = df%>%
   select(Items,System, Cause, Operated_by, Vendors, Area, Level, Zone, Facility, Discipline, YearBuilt, S, CO, SE, HE,R,Findings,Interventions,IS, Quantity, Unit, InterPer, Cost, Probability, Year, Binary_highrisk, Binary_option, NPV, NPV_HighRisk, NPV_Option)
+
+df1 <- df%>%
+  select(Items,System, Cause)
 
 glimpse(df)
 
@@ -47,8 +51,14 @@ ggplot(missing, aes(x = reorder(Variable, -value),y = value)) +
 ###
 # 
 df1 <- aggregate(df$NPV, by=list(Discipline = df$Discipline), FUN=sum)%>%filter(x>0)
+
+
+
+
 df2 <- aggregate(df$NPV_HighRisk, by=list(Discipline = df$Discipline), FUN=sum)%>%filter(x>0)
+
 df3 <- aggregate(df$NPV_Option, by=list(Discipline = df$Discipline), FUN=sum)%>%filter(x>0)
+
 write.csv(df1, file = "df1.csv")
 
 
@@ -63,6 +73,9 @@ df1_t1 <- df %>%
   summarize(NPV = sum(NPV))%>%
   filter(NPV>0)
 write.csv(df1_t1, file = "df1_t1.csv")
+
+
+
 
 df1_t2 <- df %>%
   filter(Area == "Terminal 2")%>%
