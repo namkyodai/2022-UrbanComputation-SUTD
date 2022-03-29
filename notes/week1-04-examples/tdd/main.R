@@ -1,22 +1,23 @@
 #--------------------------------------------------------------
 #--------------------------------------------------------------
-library(rstudioapi) 
+library(rstudioapi)
 setwd(dirname(getActiveDocumentContext()$path))
 
 library(readxl)
 library(DT)
-library(dplyr)
+library(dplyr) # grammar of data munipulation
 library(pander)
 library(writexl)
 epsilon=10000000
 library(reshape)
-library(ggplot2)
+library(ggplot2) # for graphs -->
 library(psych)
 library(lubridate)
 library(scales)
 library(tidyr)
 
-df=read_excel("2022-mactan-tdd-airport.xlsx",sheet="Capex",skip = 0)
+# read rawdata
+df=read_excel("data.xlsx",sheet="Capex",skip = 0)
 
 
 df = df%>%
@@ -34,14 +35,14 @@ df <- df %>%
 
 # check for missing data
 
-x1 <- map_df(df, function(x){sum(is.na(x))}) 
+x1 <- map_df(df, function(x){sum(is.na(x))})
 x1
 
 missing <- x1 %>% gather(key = "Variable") %>% filter(value > 0) %>% mutate(value = value/nrow(df))
 missing
 
-ggplot(missing, aes(x = reorder(Variable, -value),y = value)) + 
-  geom_bar(stat = "identity", fill = "salmon") + 
+ggplot(missing, aes(x = reorder(Variable, -value),y = value)) +
+  geom_bar(stat = "identity", fill = "salmon") +
   coord_flip()
 
 
@@ -70,7 +71,7 @@ write.csv(df_shortterm_summary, file = "df_shortterm_summary.csv")
 
 
 
-g_df_shortterm<-df_shortterm %>% 
+g_df_shortterm<-df_shortterm %>%
   filter(NPV_shorterm >0 & Year < 1)%>%
   ggplot(aes(x=reorder(Discipline,-NPV_shorterm, sum),y=NPV_shorterm, fill=Area))+
   geom_col()+
@@ -148,7 +149,7 @@ write.csv(df_disc_general, file = "df_disc_general.csv")
 
 # draw graph
 
-g_df_disc<-df %>% 
+g_df_disc<-df %>%
   filter(NPV >0 & Year < 1)%>%
   ggplot(aes(x=reorder(Discipline,-NPV, sum),y=NPV, fill=Area))+
   geom_col()+
@@ -180,7 +181,7 @@ write.csv(df_risk_summary, file = "df_risk_summary.csv")
 
 # highrisk
 
-g_risk<-df %>% 
+g_risk<-df %>%
   filter(NPV_HighRisk >0)%>%
   ggplot(aes(x=reorder(Discipline,-NPV_HighRisk, sum),y=NPV_HighRisk, fill=Area))+
   geom_col()+
@@ -304,7 +305,7 @@ write.csv(df_cause_general, file = "df_cause_general.csv")
 
 # draw graph
 
-g_df_cause<-df %>% 
+g_df_cause<-df %>%
   filter(NPV >0 & Year < 1)%>%
   ggplot(aes(x=reorder(Cause,-NPV, sum),y=NPV, fill=Area))+
   geom_col()+
@@ -332,7 +333,7 @@ write.csv(df_cause_summary_d, file = "df_cause_summary_d.csv")
 
 
 
-g_df_cause_d<-df %>% 
+g_df_cause_d<-df %>%
   filter(NPV >0 & Year < 1)%>%
   ggplot(aes(x=reorder(Cause,-NPV, sum),y=NPV, fill=Discipline))+
   geom_col()+
@@ -410,10 +411,10 @@ write.csv(df_option_summary, file = "df_option_summary.csv")
 
 
 
-### START 
+### START
 # 5 years
 
-g_5<-df %>% 
+g_5<-df %>%
   filter(NPV_Option >0 & Year < 6)%>%
   ggplot(aes(x=reorder(Discipline,-NPV_Option, sum),y=NPV_Option, fill=Area))+
   geom_col()+
@@ -444,7 +445,7 @@ write.csv(df_5, file = "df_5.csv")
 
 # 10 years
 
-g_10<-df %>% 
+g_10<-df %>%
   filter(NPV_Option >0 & Year >= 6 & Year <=10)%>%
   ggplot(aes(x=reorder(Discipline,-NPV_Option, sum),y=NPV_Option, fill=Area))+
   geom_col()+
@@ -477,7 +478,7 @@ write.csv(df_10, file = "df_10.csv")
 
 # 10-30 years
 
-g_15<-df %>% 
+g_15<-df %>%
   filter(NPV_Option >0 & Year >= 11 & Year <=30)%>%
   ggplot(aes(x=reorder(Discipline,-NPV_Option, sum),y=NPV_Option, fill=Area))+
   geom_col()+
@@ -511,5 +512,3 @@ write.csv(df_15, file = "df_15.csv")
 
 
 ###
-
-

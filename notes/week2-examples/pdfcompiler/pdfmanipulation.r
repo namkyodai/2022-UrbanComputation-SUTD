@@ -1,10 +1,10 @@
 library(pdftools)
 pdf_combine(c(
-"../../../references/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf",
-"../../../references/tidy-data.pdf"
+"1.pdf",
+"2.pdf"
 ), 
-output = "output.pdf")
+output = "nam.pdf")
 
 #extract some pages
-pdf_subset('output.pdf',pages = 1:1, output = "extract.pdf")
+pdf_subset('nam.pdf',pages = 1:1, output = "extract1.pdf")
 
