@@ -1,0 +1,78 @@
+"","Items","Findings","Cause","Area","Discipline","S","Interventions","NPV_shorterm"
+"1","Airfield Ground Lighting (by MCIA)","1.) Reported that there is a high possibility of Deteriorated Airfield Ground Lights on runway due to Typhoon Odette.
+2.)  Still working however there is a risk of not providing adequate level of services due to low reliability because of aging.","Typhoon","Airside","Electrical","4","replacement of airfield ground lighting",3975000
+"2","Electrical Feeder Cables","1.) 10% were damaged by typhoon.
+2.) There is a risk of not providing adequate level of services due to low reliability because of aging for remaining.
+","Typhoon","Airside","Electrical","5","Renewal of Electrical Feeder Cables",970000
+"3","Approach Lighting (by MCIA)","1.) 15% of the Approach Lighting were damaged by the typhoon.
+2.)  Still working however there is a risk of not providing adequate level of services due to low reliability because of aging.","Typhoon","Airside","Electrical","4","replacement of approach lighting",731250
+"4","Louver","Missing louver pannel due to Odette or Typhoon ""Rai""","Typhoon","Landside","Civil","3","Replacement of detached louvers",533250
+"5","Metal Roof","Damage roofing due to Odette or Typhoon ""Rai""","Typhoon","Landside","Architectural","5","Replaced damaged roofing sheet",237000
+"6","Metal Roof","Damage roofing due to Odette or Typhoon ""Rai""","Typhoon","Landside","Architectural","5","Replaced damaged roofing sheet",237000
+"7","Metal Roof","Damage roofing due to Odette or Typhoon ""Rai""","Typhoon","Landside","Architectural","5","Replaced damaged roofing sheet",79000
+"8","PBB 6","Condemned. Parts were cannibalized for other bridges.","Typhoon","Terminal 1","Mechanical","5","Procure parts and restore bridge to ensure equipment is ready for use.",1.5e+07
+"9","High Mast Lighting","1.) Power supply for 3 fixed pole were damaged by the typhoon. 
+2.) 6 out of 14 poles had defective lightings.
+3.) Controls for High Mast Lighting are manual since BMS is not existing on Terminal 1.","Typhoon","Terminal 1","Electrical","5","Replacement of damaged high mast lights
+Automation of Monitoring and Control for High Mast Lighting",9187500
+"10","Solar Panels","93 out of 17,000 panels were damaged by the typhoon","Typhoon","Terminal 1","Electrical","4","replacement of damaged solar panels",4500000
+"11","Directional Signages","90% of the directional signages were damaged by the typhoon.","Typhoon","Terminal 1","Electrical","5","Replacement of directional signages",2130000
+"12","PBB 1","Damaged Slat Curtain and Aluminum Ceiling on Cabin and Rotunda is an eye-sore. Rainwater may sip through the ceiling if not correctly replaced.","Typhoon","Terminal 1","Mechanical","3","Repair damaged part ensure presentability of bridge to passengers.",1500000
+"13","PBB 2","Damaged Slat Curtain and Aluminum Ceiling on Cabin is an eye-sore. Rainwater may sip through the ceiling if not correctly replaced.","Typhoon","Terminal 1","Mechanical","3","Repair damaged part ensure presentability of bridge to passengers.",1500000
+"14","PBB 3","Damaged Slat Curtain and Aluminum Ceiling on Cabin is an eye-sore. Rainwater may sip through the ceiling if not correctly replaced.","Typhoon","Terminal 1","Mechanical","3","Repair damaged part ensure presentability of bridge to passengers.",1500000
+"15","PBB 4","Damaged Slat Curtain and Aluminum Ceiling on Cabin is an eye-sore. Rainwater may sip through the ceiling if not correctly replaced.","Typhoon","Terminal 1","Mechanical","3","Repair damaged part ensure presentability of bridge to passengers.",1500000
+"16","PBB 5","Damaged Slat Curtain and Aluminum Ceiling on Cabin and Rotunda is an eye-sore. Rainwater may sip through the ceiling if not correctly replaced.","Typhoon","Terminal 1","Mechanical","3","Repair damaged part ensure presentability of bridge to passengers.",1500000
+"17","Carpark Lighting","1.) 2-3% of the carpark lighting were damaged by the typhoon.
+2.) No spares for Lighting Bulbs & Fixtures.","Typhoon","Terminal 1","Electrical","5","Replacement of damaged carpark lighting",1359375
+"18","Emergency Exit Lights","the emergency lights were reported not working.","Typhoon","Terminal 1","Electrical","5","Replacement of Emergency Exit Lightings",780000
+"19","Normal Lighting","1.) 5% of the normal lightings are reported to be damaged by Typhoon in North Wing Arrival.
+2.) No spares for Lighting Bulbs & Fixtures.
+","Typhoon","Terminal 1","Electrical","5","Replacement of Normal Lightings",688940
+"20","Facade Glazing","Glazings and its supports was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 1","Architectural","5","Replacement of damaged facaded glazing",630284
+"21","Facade Glazing","Glazings and its supports was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 1","Architectural","5","Replacement of damaged facaded glazing",630016
+"22","FIDS","FIDS Monitors installed outdoors are lost/damaged due to typhoon.","Typhoon","Terminal 1","IT","3","Install outdoor FIDS in a reinforced setup that will withstand typhoons, OR practice un-installation of FIDS monitors one (1) day before arrival of typhoon.",4e+05
+"23","CCTV","CCTV equipment installed outdoors are lost/damageddue to typhoon.","Typhoon","Terminal 1","IT","3","Install outdoor CCTVs in a reinforced setup that will withstand typhoons, OR practice un-installation of CCTV equipment one (1) day before arrival of typhoon.",3e+05
+"24","AHU-NPP1-1, -1, -2, -3","Insulations are damaged due to typhoon Rai (Odette) but the unit can still operate.","Typhoon","Terminal 1","Mechanical","3","Repair the insulations",140000
+"25","Normal Lighting","1.) 30% of the total architectural lighting were damaged by typhoon.
+2.) Preventive and corrective maintenance of normal lightings is not easily accessible and doable due to high ceilings.
+3.) No spares for Lighting Bulbs & Fixtures.","Typhoon","Terminal 2","Electrical","4","replacement of damaged normal / architectural lightings",6e+06
+"26","Uninterruptible Power Supply","1.) 2 out of 4 UPS were damaged by Typhoon Odette.
+2.) The UPS can accommodate 100% load of the critical and IT Systems.","Typhoon","Terminal 2","Electrical","4","corrective maintenance of damaged UPS",4175850
+"27","High Mast Lighting","1.)  2 out 11  poles for high mast lightings were damaged due to typhoon.
+2.) 6 out of 11 high mast lightings in terminal 2 had defective lightings due to typhoon.
+3.) No spares for Lighting Bulbs & Fixtures.","Typhoon","Terminal 2","Electrical","4","Replacement of damaged high mast lighting",2062500
+"28","PBB C-13r","Slat Curtain on Cab Area Damaged. Damaged Anti-Collision Sensors and Anti-Shear Sensor was temporarily repaired. Recommend immediate replacement due ensure safety of bridge and aircraft during operation.","Typhoon","Terminal 2","Mechanical","3","Repair",1500000
+"29","PBB C-13l","Damaged Anti-Collision Sensor was temporarily repaired. Recommend immediate replacement due to critical component on safety of bridge.","Typhoon","Terminal 2","Mechanical","3","Repair",1500000
+"30","PBB C-12r","Damaged Slat Curtain and Aluminum Ceiling on Cab Area","Typhoon","Terminal 2","Mechanical","3","Repair",1500000
+"31","PBB C-12l","Damaged Slat Curtain and Aluminum Ceiling on Cab Area","Typhoon","Terminal 2","Mechanical","3","Repair",1500000
+"32","PBB C-21","Damaged Canopies.  Rainwater may sip through the aircraft doors if not correctly replaced. Will cause discomfort to passengers during rainy weather.","Typhoon","Terminal 2","Mechanical","3","Repair",1500000
+"33","PBB C-22","Damaged Canopies.  Rainwater may sip through the aircraft doors if not correctly replaced. Will cause discomfort to passengers during rainy weather.","Typhoon","Terminal 2","Mechanical","3","Repair",1500000
+"34","PBB C-23","Damaged Canopies.  Rainwater may sip through the aircraft doors if not correctly replaced. Will cause discomfort to passengers during rainy weather.","Typhoon","Terminal 2","Mechanical","3","Repair",1500000
+"35","Street Lighting","1.) 30% of street lighting cover were damaged by the typhoon.
+2.) 20% of the street lights were not working.
+3.) No spares for Lighting Bulbs & Fixtures.","Typhoon","Terminal 2","Electrical","4","replacement of damaged street lighting",1359375
+"36","Carpark Lighting","1.) 30% of carpark Lightings were damaged by the typhoon.
+2.) No provions/spare for Lighting Fixtures","Typhoon","Terminal 2","Electrical","4","Replacement of damaged carpark lighting",951562.5
+"37","FIDS","FIDS Monitors installed outdoors are lost/damaged due to typhoon.","Typhoon","Terminal 2","IT","5","Renewal",8e+05
+"38","CCTV","CCTV equipment installed outdoors are lost/damaged due to typhoon.","Typhoon","Terminal 2","IT","3","Install outdoor CCTVs in a reinforced setup that will withstand typhoons, OR practice un-installation of CCTV equipment one (1) day before arrival of typhoon.",3e+05
+"39","Metal Roof","Damage roofing due to Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replaced damaged roofing sheet",134790
+"40","Facade Glazing","Glazing panel cracked due to Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged façade glazing panel",134720
+"41","Mesh Ceiling","Dismantled mesh ceiling that was affected by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","2","Replaced dismantled roofing sheet",113247
+"42","Metal Roof","Damage roofing due to Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replaced damaged roofing sheet",109198
+"43","Metal Roof","Damage roofing due to Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replaced damaged roofing sheet",75815
+"44","Skylight","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged skylight panel",41936.25
+"45","Skylight","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged skylight panel",41034
+"46","Directional Signages","10-15% of directional  signages were damaged by the typhoon and not working.","Typhoon","Terminal 2","Electrical","4","replacement of damaged directional signages",40500
+"47","Skylight","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged skylight panel",38917.25
+"48","Skylight","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged skylight panel",35775.5
+"49","Canopy","Dismantled roofing sheet due to Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","4","Replaced dismantled roofing sheet",35606
+"50","Skylight","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged skylight panel",35240
+"51","Skylight","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged skylight panel",34825.25
+"52","Skylight","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged skylight panel",34796
+"53","Skylight","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged skylight panel",34360.25
+"54","Skylight","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged skylight panel",27299.5
+"55","Skylight","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged skylight panel",27100
+"56","Canopy","Dismantled roofing sheet due to Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","4","Replaced dismantled roofing sheet",25934.5
+"57","Canopy","Dismantled roofing sheet due to Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","4","Replaced dismantled roofing sheet",23747
+"58","Facade Glazing","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged façade glazing panel",11944.8
+"59","Facade Glazing","Glazings was destroyed by Odette or Typhoon ""Rai""","Typhoon","Terminal 2","Architectural","5","Replacement of broken or damaged façade glazing panel",11163.4

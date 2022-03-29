@@ -1,0 +1,6 @@
+"","Items","Findings","Cause","Area","Discipline","S","Interventions","NPV_shorterm"
+"1","Foul Water Treatment Plant","Effleunt quality more than the allowable threshold. Poorly maintained system. Broken flowmeter.","Damage","General","Environment","4","Upgrade the STP to BNR treatment process and should complied with latest DAO regulation.",24543300
+"2","Chiller 4","Condenser tube is leaking.","Damage","Terminal 1","Mechanical","4","Repair the condenser tube",1170000
+"3","Fire Protection Pipe Supports","Buckling and irregular edges are present in the supports of pipes.","Damage","Terminal 1","Mechanical","3","Repair the existing supports and provide additional supports as necessary.",5e+05
+"4","Chiller 3","VFD controller and contactor are defective.","Damage","Terminal 1","Mechanical","4","Repair the VFD controller.",380000
+"5","Sprinkler heads and pipes","Minor leakages and deterioration are found in the reducer.","Damage","Terminal 2","Mechanical","4","Repair or replace the deteriorated reducer.",20000

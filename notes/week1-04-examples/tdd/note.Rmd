@@ -1,23 +1,37 @@
 ---
-title     : "Notebook on Technical Due Diligence"
-subtitle  : "Cebu Mactan International Airport"
-author    : "[Nam LE](https://namkyodai.github.io)"
-date      : "7-March-2022"
+title: "Executive Summary"
+subtitle: "Cebu Mactan Airport - Technical Due Diligence"
+author: "[Nam Le](https://namkyodai.github.io)"
+output: html_notebook
 ---
 
-## Reading the Tidydata File
+## CAPEX - SHORT TERM
+Short-term Capex items are items that require interventions within a short time window (e.g. 1 year). Interventions are required to provide adequate level of services and resilience to assets which have been progressively deteriorated, or were damaged due to various reasons such as Typhoon, manifest deterioration process, construction, operation, or other types of damages not contributed by Typhoon.
 
+It is important to note that the Typhoon is referred to the powerful Typhoon Rai, which occurred in December 2021. 
 
+Capex items under this category is summarized into two sub-categories
 
-```{r echo=FALSE, message=FALSE,warning=FALSE}
-library(readxl)
-library(DT)
-library(dplyr)
-library(pander)
-library(writexl)
-df=read_excel("2022-mactan-tdd-airport.xlsx",sheet="Capex",skip = 0)
-library(DT)
-p<-datatable(df)
-p
+- **Immediate**: Items with damages mainly caused by the Typhoon, progressive deterioration or other type of damages.
+- **High Risk**: Items with long aging but still provide adequate level of service. However, it reliability might be low.
+
+### Immediate Capex Items
+
+```{r, echo=FALSE, include = TRUE,out.width="80%", fig.cap="", fig.align = 'center',collapse=TRUE, message=FALSE,warning=FALSE}
+source("main.R")
+df_disc
 ```
 
+
+
+
+### High Risk Capex Items
+
+
+## CAPEX - MEDIUM TERM
+
+
+## CAPEX - LONG TERM
+
+
+## CAPEX - VISIONARY TERM
