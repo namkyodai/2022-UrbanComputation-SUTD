@@ -71,6 +71,8 @@ write.csv(df_shortterm_summary, file = "df_shortterm_summary.csv")
 
 
 
+
+
 g_df_shortterm<-df_shortterm %>%
   filter(NPV_shorterm >0 & Year < 1)%>%
   ggplot(aes(x=reorder(Discipline,-NPV_shorterm, sum),y=NPV_shorterm, fill=Area))+
@@ -82,7 +84,11 @@ g_df_shortterm<-df_shortterm %>%
     x="Discipline",
     y = "Capex (Peso)"
   )
+
 g_df_shortterm
+
+
+
 ggsave("g_df_shortterm.png",width = 10, height = 6, dpi = 200, units = "in", device='png')
 
 
@@ -92,6 +98,10 @@ ggsave("g_df_shortterm.png",width = 10, height = 6, dpi = 200, units = "in", dev
 df_disc <- aggregate(df$NPV, by=list(Discipline = df$Discipline), FUN=sum)%>%filter(x>0)
 df_disc
 write.csv(df_disc, file = "df_disc.csv")
+
+
+library(reshape2)
+
 
 df_disc_summary<-df %>%
   group_by(Discipline, Area) %>%

@@ -2,10 +2,17 @@
 #--------------------------------------------------------------
 library(rstudioapi) # setting working directory
 setwd(dirname(getActiveDocumentContext()$path)) 
+
+
 #loading required libraries
 library(tidyverse)
+
+
 library(dplyr)
 library(ggplot2)
+
+
+
 library(lubridate)
 library(scales)
 library(vtree)
@@ -18,8 +25,15 @@ library(hydroTSM)
 
 df <- data.frame(read.csv("csv/merged_file.csv",sep=",")) #reading data from csv file. Refer to other code for compilation of data.
 
+View(df)
+
+df[2]
+
+
+
 df<-df[-1] #delete the first column
 glimpse(df)
+str(df)
 
 head(df) #see first 10 observations
 tail(df) # see last 10 observations
@@ -29,10 +43,17 @@ tail(df) # see last 10 observations
 df$month<- paste(df$month,"-01",sep="") #adding -01 in so the system can regconize as data. To be use later.
 
 df$month <- as.Date(df$month) #converting to data
+
+
+###################33
+
+######################
 df <- df%>%
   mutate(date = month,.before = month)%>% #define new column name date
   mutate(year = year(date), .after = date)%>% # define new column name year
-  mutate(month=month(month)) # extract only value of month
+  mutate(month=month(month))# extract only value of month
+str(df)
+
 
 df$year <- as.integer(df$year) # convert year to integer
 df$month <- as.integer(df$month) # convert month to integer
@@ -103,9 +124,12 @@ df$flat_model <- as.factor(df$flat_model)
 df$price_m2 <- round(df$resale_price/df$floor_area_sqm,0)
 
 
+
 df%>%
   count(street_name)%>%
   tally()
+
+glimpse(df)
 
 #now we have a clean set of data, we can start to do EDA tasks
 ### EDA AND VISUALIZATION
@@ -115,42 +139,47 @@ df%>%
 
 # Load dataset from github
 # plot
-df %>% 
-  ggplot( aes(x=date, y=resale_price)) +
-  geom_line(color="#69b3a2") +
-  scale_y_continuous(labels = comma)+
-  labs(
-    x= "Date",
-    y = "Resale Price"
-  )
-  
-df %>% 
-  ggplot( aes(x=date, y=resale_price)) +
-  geom_point(color="darkorchid4") +
-  scale_y_continuous(labels = comma)+
-  labs(
-    x= "Date",
-    y = "Resale Price"
-  )+geom_smooth(method = lm)
+# df %>% 
+#   ggplot( aes(x=date, y=resale_price))+
+#   geom_line(color="blue3")+
+#   scale_y_continuous(labels = comma)+
+#   labs(
+#     x= "Date",
+#     y = "Resale Price"
+#   )
 
 
-df %>% 
-  ggplot( aes(x=floor_area_sqm, y=resale_price)) +
-  geom_point(color="darkorchid4") +
-  scale_y_continuous(labels = comma)+
-  labs(
-    x= "m2",
-    y = "Resale Price)"
-  )+geom_smooth(method = lm)
 
-df%>%
-  group_by(year)%>%
-  summarise(
-    resale_price = mean(resale_price)  
-  ) %>%
-  ggplot( aes(x=year, y=resale_price)) +
-  geom_line(color="darkorchid4")+
-  scale_y_continuous(labels = comma)
+# df %>% 
+#   ggplot( aes(x=date, y=resale_price)) +
+#   geom_point(color="darkorchid4") +
+#   scale_y_continuous(labels = comma)+
+#   labs(
+#     x= "Date",
+#     y = "Resale Price"
+#   )+geom_smooth(method = lm)
+
+
+# df %>% 
+#   ggplot( aes(x=floor_area_sqm, y=resale_price)) +
+#   geom_point(color="darkorchid4")+
+#   scale_y_continuous(labels = comma)+
+#   labs(
+#     x= "m2",
+#     y = "Resale Price)"
+#   )+geom_smooth(method = lm)
+
+
+# 
+# df%>%
+#   group_by(year)%>%
+#   summarise(
+#     resale_price = mean(resale_price)  
+#   ) %>%
+#   ggplot( aes(x=year, y=resale_price)) +
+#   geom_line(color="darkorchid4")+
+#   scale_y_continuous(labels = comma)
+# 
 
 
 ggplot(df , aes(x= as.factor(year), y=resale_price, color = as.factor(year)))+
@@ -161,12 +190,17 @@ ggplot(df , aes(x= as.factor(year), y=resale_price, color = as.factor(year)))+
   theme(legend.position = "none")
 
 
+
 ggplot(df , aes(x= as.factor(year), y=price_m2, color = as.factor(year)))+
   geom_boxplot() +
   stat_summary(fun=mean, geom="point", shape=20, size=1, color="red", fill="red")+
   scale_y_continuous(breaks = round(seq(0, 15000, by = 500),1))+
   theme(axis.text.x = element_text(angle=45, vjust=1,hjust=1))+
-  theme(legend.position = "none")
+  theme(legend.position = "none")+
+  labs(
+         x= "Year",
+         y = "Price/m2"
+       )
 
 
 #we notice that for prediction data prior to 2010 might be not relevant.
