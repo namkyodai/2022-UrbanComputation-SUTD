@@ -43,7 +43,7 @@ you should save this code into a single R file similar to [example for sghousing
 - The group can read the data directly from PostgreSQL (load the data into R environment) or you can simply export the data into a csv file and read the csv file directly from R.
 
 ## Presentation time
-Presentation time for each group is maximum 10 minutes. Other members of the groups should present instead of members who did presented already in week 2.
+Presentation time for each group is maximum 10 minutes. Other members of the groups should present instead of members who presented for week 2 assignment.
 
 
 ## Important notes
