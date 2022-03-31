@@ -39,7 +39,7 @@ you should save this code into a single R file similar to [example for sghousing
 
 
 ## Group 2
-- Dataset for group 2 is **dump-propertylistings-202203250237.sql**. Group 2 has worked already on PostgreSQL for this database and N Y M did presentation in the class. Now you can use the same data but using R to do pretty much the same jobs (e.g. using dplyr to summary different tables), then use ggplot2 to visualize some useful graphs.
+- Dataset for group 2 is **dump-propertylistings-202203250237.sql**. Group 2 has worked already on PostgreSQL for this database and @n-y-m did presentation in the class. Now you can use the same data but using R to do pretty much the same jobs (e.g. using dplyr to summary different tables), then use ggplot2 to visualize some useful graphs.
 - The group can read the data directly from PostgreSQL (load the data into R environment) or you can simply export the data into a csv file and read the csv file directly from R.
 
 ## Presentation time
