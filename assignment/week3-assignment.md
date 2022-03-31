@@ -16,7 +16,27 @@ Other than ggplot2 package, you can read the followig book on [R graphic](https:
 # Requirements for both two groups
 
 ## Group 1
-- Dataset for group 1 is time series data on weather in Singapore. I have downloaded a number of csv files for Changi station and save them under **sg-weather folder**. Your job is to merge these files into a single csv file, then use dplyr and ggplot2 library to come up with some meaningful tables and graphs.
+- Dataset for group 1 is time series data on weather in Singapore. I have downloaded a number of csv files for Changi station and save them under **[sg-weather folder](https://github.com/namkyodai/2022-UrbanComputation-SUTD/tree/main/notes/sg-weather)**. Your job is to merge these files into a single csv file, then use dplyr and ggplot2 library to come up with some meaningful tables and graphs.
+
+- For merging a lot of files into a single file, you can use the following
+
+```
+library(XLConnect)
+path <- "raw"
+merge_file_name <- "csv/merged_file.csv"
+
+filenames <- list.files(path= path, full.names=TRUE)
+
+All <- lapply(filenames,function(filename){
+  print(paste("Merging",filename,sep = " "))
+  read.csv(filename)
+})
+df <- do.call(rbind.data.frame, All)
+write.csv(df,merge_file_name)
+```
+
+you should save this code into a single R file similar to [example for sghousingprice](https://github.com/namkyodai/2022-UrbanComputation-SUTD/blob/main/notes/sg-houseprice/combineexcel.r)
+
 
 ## Group 2
 - Dataset for group 2 is **dump-propertylistings-202203250237.sql**. Group 2 has worked already on PostgreSQL for this database and N Y M did presentation in the class. Now you can use the same data but using R to do pretty much the same jobs (e.g. using dplyr to summary different tables), then use ggplot2 to visualize some useful graphs.
