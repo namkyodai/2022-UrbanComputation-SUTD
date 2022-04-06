@@ -207,14 +207,14 @@ ggplot(df , aes(x= as.factor(year), y=price_m2, color = as.factor(year)))+
 df1 <- df %>%
   filter(year >= 2010)
 
-df1 %>% 
-  ggplot( aes(x=date, y=resale_price)) +
-  geom_line(color="#69b3a2") +
-  scale_y_continuous(labels = comma,breaks = round(seq(0, max(df1$resale_price), by = 50000),1))+
-  labs(
-    x= "Date",
-    y = "Resale Price"
-  )
+# df1 %>% 
+#   ggplot( aes(x=date, y=resale_price)) +
+#   geom_line(color="#69b3a2") +
+#   scale_y_continuous(labels = comma,breaks = round(seq(0, max(df1$resale_price), by = 50000),1))+
+#   labs(
+#     x= "Date",
+#     y = "Resale Price"
+#   )
 
 # another way to calculate and plot the mean.
 df1%>%
@@ -229,15 +229,15 @@ df1%>%
 
 # another way
 
-df1 %>% 
-  ggplot( aes(x=date, y=resale_price)) +
-  geom_line(color="#69b3a2") +
-  labs(
-    x= "Date",
-    y = "Resale Price"
-  )+
-  scale_y_continuous(labels = comma,breaks = round(seq(0, max(df1$resale_price), by = 50000),1))+
-  scale_x_date(NULL, date_labels = "%b %y", breaks = "year")
+# df1 %>% 
+#   ggplot( aes(x=date, y=resale_price)) +
+#   geom_line(color="#69b3a2") +
+#   labs(
+#     x= "Date",
+#     y = "Resale Price"
+#   )+
+#   scale_y_continuous(labels = comma,breaks = round(seq(0, max(df1$resale_price), by = 50000),1))+
+#   scale_x_date(NULL, date_labels = "%b %y", breaks = "year")
 
 # this is another way to draw the value.
 df1%>%
@@ -252,17 +252,17 @@ df1%>%
 
 #we can see the the value shown in the graph are all observation in every month (as the data is month in year). We might need to summary this data and plot only the average value.
 
-df1 %>% 
-  ggplot( aes(x=date, y=resale_price)) +
-  geom_point(color="darkorchid4") +
-  scale_y_continuous(labels = comma)+
-  labs(
-    x= "Date",
-    y = "Resale Price)"
-  )+geom_smooth(method = lm)+ 
-  (scale_x_date(breaks=date_breaks("6 months"),
-                labels=date_format("%b %y")))+
-  theme(axis.text.x = element_text(angle=90, vjust=1,hjust=1))
+# df1 %>% 
+#   ggplot( aes(x=date, y=resale_price)) +
+#   geom_point(color="darkorchid4") +
+#   scale_y_continuous(labels = comma)+
+#   labs(
+#     x= "Date",
+#     y = "Resale Price)"
+#   )+geom_smooth(method = lm)+ 
+#   (scale_x_date(breaks=date_breaks("6 months"),
+#                 labels=date_format("%b %y")))+
+#   theme(axis.text.x = element_text(angle=90, vjust=1,hjust=1))
 
 
 ggplot(df1 , aes(x= as.factor(year), y=resale_price, color = as.factor(year)))+
@@ -282,15 +282,15 @@ ggplot(df1 , aes(x= as.factor(year), y=price_m2, color = as.factor(year)))+
 
 
 #resale price vs area in m2
-df1 %>% 
-  ggplot( aes(x=floor_area_sqm, y=resale_price)) +
-  geom_point(color="darkorchid4") +
-  labs(
-    x= "m2",
-    y = "Resale Price"
-  )+geom_smooth(method = lm)+
-  scale_y_continuous(labels = comma,breaks = round(seq(0, max(df1$resale_price), by = 50000),1))+
-  scale_x_continuous(breaks = round(seq(0, 400, by = 20),1))
+# df1 %>% 
+#   ggplot( aes(x=floor_area_sqm, y=resale_price)) +
+#   geom_point(color="darkorchid4") +
+#   labs(
+#     x= "m2",
+#     y = "Resale Price"
+#   )+geom_smooth(method = lm)+
+#   scale_y_continuous(labels = comma,breaks = round(seq(0, max(df1$resale_price), by = 50000),1))+
+#   scale_x_continuous(breaks = round(seq(0, 400, by = 20),1))
 
 
 # it is very difficult to narrate meaningful narrative on this, as it seems the prices keep changed up and down even within a short period, the reason for this is that our data is a mixed data and spready in a long time. Let break it down.
