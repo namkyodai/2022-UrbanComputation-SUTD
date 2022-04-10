@@ -230,7 +230,7 @@ ggplot(weather,aes(x = date,y = ave.temp)) +
 
 ### Analyze temperature per seasons
 
-ggplot(weather,aes(x = ave.temp, colour = season)) +
+ggplot(weather,aes(x = ave.temp+10, colour = season)) +
   geom_density() +
   scale_x_continuous(limits = c(5,30), breaks = seq(5,30,5))+
   xlab("Average Temperature () ºC )") +  ylab ("Prob/Density")+
@@ -239,11 +239,9 @@ ggplot(weather,aes(x = ave.temp, colour = season)) +
 
 
 
-
-
 #### Monthly Temperature - Using different type of graphs
 
-ggplot(weather,aes(x = month, y = ave.temp)) +
+ggplot(weather,aes(x = month, y = ave.temp+10)) +
   geom_violin(fill = "orange") +
   geom_point(aes(size = rain), colour = "blue", position = "jitter") +
   ggtitle ("Monthly Distribution of Temperature") +

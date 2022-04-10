@@ -5,7 +5,8 @@ setwd(dirname(getActiveDocumentContext()$path))
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
-
+library(scales)
+library(vtree)
 
 df <- data.frame(read.csv("sg-housing-resale-data.csv",sep=",",skip = "0"))
 
@@ -26,7 +27,11 @@ df%>%
   filter(year> 2015, flat_type %in% c("2 ROOM","5 ROOM"))%>%
   arrange(desc(resale_price))
 
-
+df%>%
+  group_by(year)%>%
+  summarise(
+    resale_price = mean(resale_price)
+  )
 
 
 
@@ -191,10 +196,10 @@ ggplot(df1,aes(x=price_m2)) +
 
 ggplot(df1%>%
          count(flat_type),aes(x=flat_type,y=n, color = flat_type)) +
-  geom_bar(stat = "identity",fill='steelblue', alpha = 0.3) +
+  geom_bar(stat = "identity",fill='steelblue', alpha = 0.3)+
   scale_y_continuous(labels=comma)+
   geom_text(aes(label = prettyNum(n, big.mark = ",", scientific = FALSE)), vjust = -0.5)+
-  theme(axis.text.x = element_text(angle=45, vjust=1,hjust=1))+
+  theme(axis.text.x = element_text(angle=25, vjust=1,hjust=1))+
   theme(legend.position = "none")+
   labs(
     x="flat type",
@@ -364,6 +369,9 @@ ggplot(df1 , aes(x= reorder(storey_range,-resale_price), y=resale_price, color =
 # how is about remaining lease
 
 df2 <- na.omit(df1)
+
+head(df1)
+
 
 # counting
 ggplot(df2%>%
