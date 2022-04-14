@@ -1,16 +1,35 @@
 x2 <- seq(0,2*pi,len=100)
+
 y2 <- sin(x2)
+
 y4 <- cos(x2)
+
+
+plot(y2)
+plot(y4)
+
 par(mfrow = c(1,2))
 plot(y2,y4)
+
 polygon(y2,y4,col='lightgreen')
+
 plot(y2,y4, asp=1, type='n')
 polygon(y2,y4,col='lightgreen')
 #install.packages("GISTools", depend = T)
+
 library(GISTools)
+
+
 data(georgia)
-georgia
+
+class(georgia)
+
+georgia@data
+
+
 appling <- georgia.polys[[1]]
+
+
 View(georgia@data)
 
 plot.new()
@@ -20,15 +39,20 @@ polygon(appling, density=10, angle=145)
 
 View(appling[[1]])
 colours()
-polygon(appling, col=rgb(0,0.5,0.7))
+
+polygon(appling, col="blue")
 polygon(appling, col=rgb(0,0.5,0.7,0.4))
 
 # set the plot extent
 plot(appling, asp=1, type='n', xlab="Easting", ylab="Northing")
+
+
 # plot the points
 points(x = runif(500,126,132)*10000,
        y = runif(500,103,108)*10000, pch=16, col='red')
 # plot the polygon with a transparency factor
+
+
 polygon(appling, col=rgb(0,0.5,0.7,0.4))
 
 
@@ -46,6 +70,9 @@ data(meuse.grid)
 mat = SpatialPixelsDataFrame(points = meuse.grid[c("x", "y")],
                              data = meuse.grid)
 image(mat, "dist")
+
+
+
 library(RColorBrewer)
 
 greenpal <- brewer.pal(7,'Greens')
@@ -56,8 +83,18 @@ theme_bw()
 theme_dark()
 library(gridExtra)
 
+
+
+appling
+
 appling <- data.frame(appling)
+
+
 colnames(appling) <- c("X", "Y")
+
+#ggplot2
+
+
 p1 <- qplot(X, Y, data = appling, geom = "polygon", asp = 1,
             colour = I("black"),
             fill=I(rgb(0,0.5,0.7,0.4))) +
@@ -66,6 +103,8 @@ p1 <- qplot(X, Y, data = appling, geom = "polygon", asp = 1,
 # create a data.frame to hold the points
 
 p1
+
+
 
 df <- data.frame(x = runif(500,126,132)*10000,
                  y = runif(500,103,108)*10000)
@@ -81,12 +120,15 @@ p2
 grid.arrange(p1, p2, ncol = 2)
 
 
-is.element("sf", installed.packages())
+#is.element("sf", installed.packages())
 
 #install.packages("sf", dep = TRUE)
 #help(sf)
 #??sf
+#library(GISTools)
+
 data(newhaven)
+
 
 ls()
 class(breach)
@@ -102,17 +144,30 @@ par(mar = c(0,0,0,0))
 plot(roads, col="red")
 plot(blocks, add = T)
 
+
+
+
+### -------------------------
+
+
 library(sf)
+
+
+
 vignette(package = "sf")
 vignette("sf1", package = "sf")
 
 # load the georgia data
 data(georgia)
+
 # conversion to sf
 georgia_sf = st_as_sf(georgia)
 class(georgia_sf)
-georgia_sf
-georgia@data
+
+View(georgia_sf)
+
+View(georgia@data)
+
 
 # all attributes
 plot(georgia_sf)
@@ -132,16 +187,22 @@ head(data.frame(georgia))
 head(data.frame(georgia_sf))
 
 
+#######3 --BLOCK --> Spatial frame
+
 roads_sf <- st_as_sf(roads)
 class(roads_sf)
 r2 <- as(roads_sf, "Spatial")
 class(r2)
 
+
+##############
 library(rgdal)
 
-writeOGR(obj=georgia, dsn="./test", layer="georgia",
+writeOGR(obj=georgia, dsn="./nam", layer="abc",
          driver="ESRI Shapefile", overwrite_layer=T)
+
 new.georgia <- readOGR("test/georgia.shp")
+
 
 class(new.georgia)
 
@@ -166,15 +227,26 @@ data(georgia)
 
 georgia_sf <- st_as_sf(georgia)
 
+
+##### PLOTING USING TMAP ---_ggpolot2
+
 library(tmap)
 
 qtm(georgia, fill = "red", style = "natural")
+
+
 
 qtm(georgia_sf, fill="MedInc", text="Name", text.size=1,
     format="World_wide", style="classic",
     text.root=5, fill.title="Median Income")
 
+# sf --> 
+# PostGIS   --> st_area
+
+
 g <- st_union(georgia_sf)
+
+## using tmap libary ggplot
 
 tm_shape(georgia_sf) +
   tm_fill("tomato")
@@ -198,6 +270,7 @@ tm_shape(georgia_sf) +
   tm_shape(g) +
   tm_borders(lwd = 2)
 
+
 tm_shape(georgia_sf) +
   tm_fill("tomato") +
   tm_borders(lty = "dashed", col = "gold") +
@@ -213,6 +286,8 @@ t1 <- tm_shape(georgia_sf) +
   tm_fill("coral") +
   tm_borders() +
   tm_layout(bg.color = "grey85")
+
+
 # 2nd plot of georgia2
 t2 <- tm_shape(georgia2) +
   tm_fill("orange") +
@@ -231,18 +306,23 @@ pushViewport(viewport(layout=grid.layout(1,2)))
 print(t1, vp=viewport(layout.pos.col = 1, height = 5))
 print(t2, vp=viewport(layout.pos.col = 2, height = 5))
 
+################## 
 
 data.frame(georgia_sf)[,13]
 
 
 tm_shape(georgia_sf) +
   tm_fill("white") +
-  tm_borders() +
-  tm_text("Name", size = 0.3) +
+  tm_borders()+
+  tm_text("Name", size = 0.3)+
   tm_layout(frame = FALSE)
 
+
+######## ----
 index <- c(81, 82, 83, 150, 62, 53, 21, 16, 124, 121, 17)
 georgia_sf.sub <- georgia_sf[index,]
+
+
 
 tm_shape(georgia_sf.sub) +
   tm_fill("gold1") +
@@ -271,28 +351,31 @@ tm_shape(georgia_sf) +
   tm_layout(frame = T, title = "Georgia with a subset of counties",
             title.size = 1, title.position = c(0.02, "bottom"))
 
+##### plolty --> interactive plot with ggplot2
 
-
-library(OpenStreetMap)
-# define upper left, lower right corners
-georgia.sub <- georgia[index,]
-ul <- as.vector(cbind(bbox(georgia.sub)[2,2],
-                      bbox(georgia.sub)[1,1]))
-lr <- as.vector(cbind(bbox(georgia.sub)[2,1],
-                      bbox(georgia.sub)[1,2]))
-# download the map tile
-MyMap <- openmap(ul,lr)
-# now plot the layer and the backdrop
-par(mar = c(0,0,0,0))
-plot(MyMap, removeMargin=FALSE)
-plot(spTransform(georgia.sub, osm()), add = TRUE, lwd = 2)
-
+# library(OpenStreetMap)
+# # define upper left, lower right corners
+# georgia.sub <- georgia[index,]
+# 
+# 
+# ul <- as.vector(cbind(bbox(georgia.sub)[2,2],
+#                       bbox(georgia.sub)[1,1]))
+# lr <- as.vector(cbind(bbox(georgia.sub)[2,1],
+#                       bbox(georgia.sub)[1,2]))
+# # download the map tile
+# MyMap <- openmap(ul,lr)
+# # now plot the layer and the backdrop
+# par(mar = c(0,0,0,0))
+# plot(MyMap, removeMargin=FALSE)
+# plot(spTransform(georgia.sub, osm()), add = TRUE, lwd = 2)
 
 
 
 
 # load the package
+
 library(RgoogleMaps)
+
 # convert the subset
 shp <- SpatialPolygons2PolySet(georgia.sub)
 # determine the extent of the subset
@@ -304,7 +387,7 @@ par(mar = c(0,0,0,0))
 PlotPolysOnStaticMap(MyMap, shp, lwd=2,
                      col = rgb(0.25,0.25,0.25,0.025), add = F)
 
-
+####
 tmap_mode('view')
 
 tm_shape(georgia_sf.sub) +
@@ -313,9 +396,12 @@ tm_shape(georgia_sf.sub) +
 tmap_mode("plot")
 
 
+
+
 # load package and data
 library(GISTools)
 data(newhaven)
+
 proj4string(roads) <- proj4string(blocks)
 # plot spatial data
 tm_shape(blocks) +
@@ -330,10 +416,15 @@ tm_shape(blocks) +
             title.position = c(0.55, "top"),
             legend.outside = T)
 
+
+# sf --> 
+
 # load package and data
 
 pts_sf <- st_centroid(georgia_sf)
 pts_sf
+
+
 
 plot(pts_sf)
 
@@ -346,6 +437,9 @@ tm_shape(georgia_sf) +
   # the points layer
   tm_shape(pts_sf) +
   tm_bubbles("PctBlack", title.size = "% Black", col = "gold")
+
+
+
 
 # clear workspace
 rm(list = ls())
@@ -377,9 +471,10 @@ blocks$P_VACANT
 
 attach(data.frame(blocks_sf)) #attach() function in R Language is used to access the variables present in the data framework without calling the data frame.
 
-hist(P_VACANT)
+hist(blocks$P_VACANT)
 
 detach(data.frame(blocks_sf))
+
 breach.dens = st_as_sf(kde.points(breach,lims=tracts)) #kde is to create kernel density surface
 summary(breach.dens)
 
@@ -390,6 +485,10 @@ blocks_sf$RandVar <- rnorm(nrow(blocks_sf))
 tmap_mode('plot')
 tm_shape(blocks_sf) +
   tm_polygons("P_OWNEROCC")
+
+###################
+
+
 
 tm_shape(blocks_sf) +
   tm_polygons("P_OWNEROCC", breaks=seq(0, 100, by=25))
@@ -403,6 +502,8 @@ tm_shape(blocks_sf) +
   tm_layout(legend.title.size = 1,
             legend.text.size = 1,
             legend.position = c(0.1, 0.1))
+
+
 display.brewer.all()
 brewer.pal(5,'Blues')
 
@@ -446,7 +547,7 @@ print(p3, vp=viewport(layout.pos.col = 3, height = 5))
 tm_shape(blocks_sf) +
   tm_polygons("P_OWNEROCC", title = "Owner Occ", palette = "-GnBu",
               breaks = c(0, round(quantileCuts(blocks$P_OWNEROCC, 6), 1)),
-              legend.hist = T) +
+              legend.hist = T)+
   tm_scale_bar(width = 0.22) +
   tm_compass(position = c(0.8, 0.07)) +
   tm_layout(frame = F, title = "New Haven",
@@ -457,6 +558,7 @@ tm_shape(blocks_sf) +
 # add a projection to tracts data and convert tracts data to sf
 proj4string(tracts) <- proj4string(blocks)
 tracts_sf <- st_as_sf(tracts)
+class(tracts_sf)
 tracts_sf <- st_transform(tracts_sf, "+proj=longlat +ellps=WGS84")
 # plot
 tm_shape(blocks_sf) +
@@ -554,7 +656,6 @@ Long <- as.vector(quakes$long)
 # you will need to be online
 MyMap <- MapBackground(lat=Lat, lon=Long, zoom = 10,
                        maptype = "satellite")
-
 
 
 # define a size vector

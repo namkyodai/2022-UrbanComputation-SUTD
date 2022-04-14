@@ -1,0 +1,45 @@
+# Metadata for Planning Area Census 2010
+---
+Identifier: '70c818b4-2d1b-4400-90cb-21e0456eeb3f'
+Name: 'planning-area-census2010'
+Title: 'Planning Area Census 2010'
+Description: 'Indicative polygon of planning area boundary  for Singapore Census of
+  Population 2010. There are a total of 55 Planning Areas in Singapore with each Planning
+  Area having a population of about 150,000 and served by a town centre and several
+  neighbourhood commercial/shopping centres. The number of Planning Areas within a
+  Planning Region ranges from 6 to 22 depending on the distribution of population
+  within the region. Singapore Census of Population 2010 is published by Department
+  of Statistics, Singapore. Note : Published map is based on Urban Redevelopment Authority''''s
+  Master Plan 2008 planning area boundaries and Singapore Land Authority''''s 2010
+  Singapore island profile. The Master Plan 2008 is a forward looking guiding plan
+  for Singapore''''s development in the medium term over the next 10 to 15 years and
+  the planning boundaries may not coincide with existing developments for some areas.'
+Topics:
+  - 'Infrastructure'
+Keywords:
+  - 'Planning Area Boundary'
+  - 'Singapore Census of Population 2010'
+Publisher:
+  Name: 'Urban Redevelopment Authority'
+  Admin 1:
+    Name: 'Pamela Poh'
+    Department: 'Urban Redevelopment Authority'
+    Email: 'pamela_poh@ura.gov.sg'
+Sources:
+  - 'Urban Redevelopment Authority'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Ad-hoc'
+Last Updated: '2017-09-25T04:18:27.525614'
+Resources:
+  -
+    Identifier: '4d21cd2a-3432-4f79-85ec-5df1572c912b'
+    Title: 'Planning Area Census2010 (KML)'
+    Url: 'https://geo.data.gov.sg/planning-area-census2010/2014/04/14/kml/planning-area-census2010.zip'
+    Format: 'KML'
+    Last Updated: '2014-04-13T16:00:00'
+  -
+    Identifier: '076de3a7-eaa6-426e-8331-557469dd7ce8'
+    Title: 'Planning Area Census2010 (SHP)'
+    Url: 'https://geo.data.gov.sg/planning-area-census2010/2014/04/14/shp/planning-area-census2010.zip'
+    Format: 'SHP'
+    Last Updated: '2014-04-13T16:00:00'

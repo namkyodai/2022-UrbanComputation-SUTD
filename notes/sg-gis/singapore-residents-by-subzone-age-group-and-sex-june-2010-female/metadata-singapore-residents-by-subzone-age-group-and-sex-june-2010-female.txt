@@ -1,0 +1,39 @@
+# Metadata for Singapore Residents by Subzone, Age Group and Sex, June 2010 (Female)
+---
+Identifier: '6bb61961-86a0-470e-8375-013a7a4e851d'
+Name: 'singapore-residents-by-subzone-age-group-and-sex-june-2010-female'
+Title: 'Singapore Residents by Subzone, Age Group and Sex, June 2010 (Female)'
+Description: 'Distribution of the resident population (Female) by planning area/subzone
+  based on URA MP08, age group and sex, June 2010'
+Topics:
+  - 'Society'
+Keywords:
+  - 'Age group and Sex'
+  - 'Singapore Residents by Planning Area'
+  - 'Subzone'
+Publisher:
+  Name: 'Ministry of Trade and Industry - Department of Statistics'
+  Admin 1:
+    Name: 'Chow Miew Sum'
+    Department: 'Ministry of Trade and Industry - Department of Statistics'
+    Email: 'chow_miew_sum@singstat.gov.sg'
+Sources:
+  - 'Ministry of Trade and Industry - Department of Statistics'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Ad-hoc'
+Last Updated: '2016-12-09T03:57:27.182131'
+Resources:
+  -
+    Identifier: 'b66dc9ae-d9e2-44cb-b9c4-b7e71e814083'
+    Title: 'Singapore Residents by Subzone, Age Group and Sex, June 2010 (Female)
+      (KML)'
+    Url: 'https://geo.data.gov.sg/subzone-age-female-2010/2016/10/18/kml/subzone-age-female-2010.zip'
+    Format: 'KML'
+    Last Updated: '2016-10-17T16:00:00'
+  -
+    Identifier: 'f9c95dbd-c2d1-4b5e-b3bf-84a63e25e720'
+    Title: 'Singapore Residents by Subzone, Age Group and Sex, June 2010 (Female)
+      (SHP)'
+    Url: 'https://geo.data.gov.sg/subzone-age-female-2010/2016/10/18/shp/subzone-age-female-2010.zip'
+    Format: 'SHP'
+    Last Updated: '2016-10-17T16:00:00'

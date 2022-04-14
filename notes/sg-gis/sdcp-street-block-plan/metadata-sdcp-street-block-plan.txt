@@ -1,0 +1,34 @@
+# Metadata for SDCP Street Block Plan
+---
+Identifier: '669e7510-2353-46b0-9b11-f862b3b612a5'
+Name: 'sdcp-street-block-plan'
+Title: 'SDCP Street Block Plan'
+Description: 'Indicative polygon of the Street Block boundary.'
+Topics:
+  - 'Infrastructure'
+Keywords:
+  - 'Street Block Plan'
+Publisher:
+  Name: 'Urban Redevelopment Authority'
+  Admin 1:
+    Name: 'Pamela Poh'
+    Department: 'Urban Redevelopment Authority'
+    Email: 'pamela_poh@ura.gov.sg'
+Sources:
+  - 'Urban Redevelopment Authority'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Ad-hoc'
+Last Updated: '2017-06-14T09:04:21.634577'
+Resources:
+  -
+    Identifier: '7a1ce705-55b4-4e11-98f0-c452db9b3bdf'
+    Title: 'SDCP Street Block Plan (KML)'
+    Url: 'https://geo.data.gov.sg/g-mp08-street-blk-plan-pl/2011/03/21/kml/g-mp08-street-blk-plan-pl.zip'
+    Format: 'KML'
+    Last Updated: '2011-03-20T16:00:00'
+  -
+    Identifier: '7e411b46-911a-4e6b-9669-3e5b1e00b636'
+    Title: 'SDCP Street Block Plan (SHP)'
+    Url: 'https://geo.data.gov.sg/g-mp08-street-blk-plan-pl/2011/03/21/shp/g-mp08-street-blk-plan-pl.zip'
+    Format: 'SHP'
+    Last Updated: '2011-03-20T16:00:00'

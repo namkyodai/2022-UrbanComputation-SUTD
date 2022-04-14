@@ -1,0 +1,38 @@
+# Metadata for Singapore Residents by Planning Area, Age Group and Sex, June 2010 (Female)
+---
+Identifier: 'f69cee02-c9c5-4028-84dc-10f25a81b5c1'
+Name: 'singapore-residents-by-planning-area-age-group-and-sex-june-2010-female'
+Title: 'Singapore Residents by Planning Area, Age Group and Sex, June 2010 (Female)'
+Description: 'Distribution of the resident population (Female) by planning area based
+  on URA MP08, age group and sex, June 2010'
+Topics:
+  - 'Society'
+Keywords:
+  - 'Age group and Sex'
+  - 'Singapore Residents by Planning Area'
+Publisher:
+  Name: 'Ministry of Trade and Industry - Department of Statistics'
+  Admin 1:
+    Name: 'Chow Miew Sum'
+    Department: 'Ministry of Trade and Industry - Department of Statistics'
+    Email: 'chow_miew_sum@singstat.gov.sg'
+Sources:
+  - 'Ministry of Trade and Industry - Department of Statistics'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Ad-hoc'
+Last Updated: '2016-12-09T03:50:53.899872'
+Resources:
+  -
+    Identifier: '0c70d688-4261-42b2-b7be-4b9597d7f9ee'
+    Title: 'Singapore Residents by Planning Area, Age Group and Sex, June 2010 (Female)
+      (KML)'
+    Url: 'https://geo.data.gov.sg/plan-bdy-age-female-2010/2016/10/18/kml/plan-bdy-age-female-2010.zip'
+    Format: 'KML'
+    Last Updated: '2016-10-17T16:00:00'
+  -
+    Identifier: 'cfeb4954-014a-41a0-b86c-804412681615'
+    Title: 'Singapore Residents by Planning Area, Age Group and Sex, June 2010 (Female)
+      (SHP)'
+    Url: 'https://geo.data.gov.sg/plan-bdy-age-female-2010/2016/10/18/shp/plan-bdy-age-female-2010.zip'
+    Format: 'SHP'
+    Last Updated: '2016-10-17T16:00:00'

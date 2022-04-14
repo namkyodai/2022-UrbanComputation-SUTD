@@ -1,0 +1,37 @@
+# Metadata for Singapore Residents by Subzone and Type of Dwelling, June 2010
+---
+Identifier: '8998b8c1-802d-4dd0-a1af-87066cec8ae4'
+Name: 'singapore-residents-by-subzone-and-type-of-dwelling-june-2010'
+Title: 'Singapore Residents by Subzone and Type of Dwelling, June 2010'
+Description: 'Distribution of the resident population by planning area/subzone based
+  on URA MP08 and type of dwelling, June 2010'
+Topics:
+  - 'Society'
+Keywords:
+  - 'Singapore Residents by Planning Area'
+  - 'Subzone'
+  - 'Type of Dwelling'
+Publisher:
+  Name: 'Ministry of Trade and Industry - Department of Statistics'
+  Admin 1:
+    Name: 'Chow Miew Sum'
+    Department: 'Ministry of Trade and Industry - Department of Statistics'
+    Email: 'chow_miew_sum@singstat.gov.sg'
+Sources:
+  - 'Ministry of Trade and Industry - Department of Statistics'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Ad-hoc'
+Last Updated: '2016-12-09T04:00:15.466515'
+Resources:
+  -
+    Identifier: '25d932f3-951e-45a7-8e36-95b63460ad73'
+    Title: 'Singapore Residents by Subzone and Type of Dwelling, June 2010 (KML)'
+    Url: 'https://geo.data.gov.sg/subzone-dwelling-type-2010/2016/10/18/kml/subzone-dwelling-type-2010.zip'
+    Format: 'KML'
+    Last Updated: '2016-10-17T16:00:00'
+  -
+    Identifier: '529ecea7-1b47-40eb-9844-63c11ac685d0'
+    Title: 'Singapore Residents by Subzone and Type of Dwelling, June 2010 (SHP)'
+    Url: 'https://geo.data.gov.sg/subzone-dwelling-type-2010/2016/10/18/shp/subzone-dwelling-type-2010.zip'
+    Format: 'SHP'
+    Last Updated: '2016-10-17T16:00:00'

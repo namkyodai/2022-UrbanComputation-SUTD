@@ -1,0 +1,34 @@
+# Metadata for SDCP Activity 1st Storey
+---
+Identifier: 'a9333015-d5e9-4ea5-b996-80e0e398ba36'
+Name: 'sdcp-activity-1st-storey'
+Title: 'SDCP Activity 1st Storey'
+Description: 'Indicative boundary of the activity areas at first storey.'
+Topics:
+  - 'Infrastructure'
+Keywords:
+  - 'Activity Generating Uses at 1st Storey'
+Publisher:
+  Name: 'Urban Redevelopment Authority'
+  Admin 1:
+    Name: 'Pamela Poh'
+    Department: 'Urban Redevelopment Authority'
+    Email: 'pamela_poh@ura.gov.sg'
+Sources:
+  - 'Urban Redevelopment Authority'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Ad-hoc'
+Last Updated: '2017-06-14T09:03:30.130585'
+Resources:
+  -
+    Identifier: '97bf3bab-4348-4be1-b9a7-0aedc537b801'
+    Title: 'SDCP Activity 1st Storey (KML)'
+    Url: 'https://geo.data.gov.sg/g-mp08-act-1st-st-pl/2011/03/18/kml/g-mp08-act-1st-st-pl.zip'
+    Format: 'KML'
+    Last Updated: '2011-03-17T16:00:00'
+  -
+    Identifier: 'c5c1a32b-fb78-4982-9adb-51e5f72dc8f1'
+    Title: 'SDCP Activity 1st Storey (SHP)'
+    Url: 'https://geo.data.gov.sg/g-mp08-act-1st-st-pl/2011/03/18/shp/g-mp08-act-1st-st-pl.zip'
+    Format: 'SHP'
+    Last Updated: '2011-03-17T16:00:00'

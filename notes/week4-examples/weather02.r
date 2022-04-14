@@ -460,8 +460,12 @@ index <- sample(1:nrow(weather),size = 0.7*nrow(weather))
 
 # 
 train <- weather[index,]
+
 # 
 test <- weather [-index,]
+
+
+
 
 nrow(train)
 nrow(test)
@@ -504,6 +508,7 @@ MAE.baseline
 
 
 # Multiple linear regression
+
 
 # 
 lin.reg <- lm(log(rain+1) ~ season +  h.temp + ave.temp + ave.wind + gust.wind +

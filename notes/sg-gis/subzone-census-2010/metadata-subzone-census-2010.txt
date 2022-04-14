@@ -1,0 +1,45 @@
+# Metadata for Subzone Census 2010
+---
+Identifier: '59cdf2bf-97c9-4dd1-b17f-1a6a4e8d5480'
+Name: 'subzone-census-2010'
+Title: 'Subzone Census 2010'
+Description:
+  - 'Indicative polygon of subzone boundary for Singapore Census of Population 2010.'
+  - 'Subzones are divisions within a planning area which are usually centred around
+    a focal point such as neighbourhood centre or activity node. There can be more
+    than 10 subzones within a Planning Area. Singapore Census of Population 2010 is
+    published by Department of Statistics, Singapore.  Note : Published map is based
+    on Urban Redevelopment Authority''''s Master Plan 2008 planning area boundaries
+    and Singapore Land Authority''''s 2010 Singapore island profile. The Master Plan
+    2008 is a forward looking guiding plan for Singapore''''s development in the medium
+    term over the next 10 to 15 years and the planning boundaries may not coincide
+    with existing developments for some areas.'
+Topics:
+  - 'Infrastructure'
+Keywords:
+  - 'Region Boundary'
+  - 'Singapore Census of Population 2010'
+Publisher:
+  Name: 'Urban Redevelopment Authority'
+  Admin 1:
+    Name: 'Pamela Poh'
+    Department: 'Urban Redevelopment Authority'
+    Email: 'pamela_poh@ura.gov.sg'
+Sources:
+  - 'Urban Redevelopment Authority'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Ad-hoc'
+Last Updated: '2017-09-25T04:19:43.973489'
+Resources:
+  -
+    Identifier: 'da7a5183-4caa-4822-be7e-d45b25d8d7fc'
+    Title: 'Subzone Census2010 (KML)'
+    Url: 'https://geo.data.gov.sg/subzone-census2010/2014/05/02/kml/subzone-census2010.zip'
+    Format: 'KML'
+    Last Updated: '2014-05-01T16:00:00'
+  -
+    Identifier: 'a06f6269-d059-4f43-a582-33ad8ef4de8b'
+    Title: 'Subzone Census2010 (SHP)'
+    Url: 'https://geo.data.gov.sg/subzone-census2010/2014/05/02/shp/subzone-census2010.zip'
+    Format: 'SHP'
+    Last Updated: '2014-05-01T16:00:00'
