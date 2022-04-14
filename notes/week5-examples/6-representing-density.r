@@ -1,4 +1,4 @@
-source("week1-5-GISandR.r")
+source("5-GISandR.r")
 library(sp)
 library(raster)
 library(adehabitatHR)

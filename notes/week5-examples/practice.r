@@ -240,7 +240,7 @@ qtm(georgia_sf, fill="MedInc", text="Name", text.size=1,
     format="World_wide", style="classic",
     text.root=5, fill.title="Median Income")
 
-# sf --> 
+# sf -->
 # PostGIS   --> st_area
 
 
@@ -306,7 +306,7 @@ pushViewport(viewport(layout=grid.layout(1,2)))
 print(t1, vp=viewport(layout.pos.col = 1, height = 5))
 print(t2, vp=viewport(layout.pos.col = 2, height = 5))
 
-################## 
+##################
 
 data.frame(georgia_sf)[,13]
 
@@ -356,8 +356,8 @@ tm_shape(georgia_sf) +
 # library(OpenStreetMap)
 # # define upper left, lower right corners
 # georgia.sub <- georgia[index,]
-# 
-# 
+#
+#
 # ul <- as.vector(cbind(bbox(georgia.sub)[2,2],
 #                       bbox(georgia.sub)[1,1]))
 # lr <- as.vector(cbind(bbox(georgia.sub)[2,1],
@@ -417,7 +417,7 @@ tm_shape(blocks) +
             legend.outside = T)
 
 
-# sf --> 
+# sf -->
 
 # load package and data
 

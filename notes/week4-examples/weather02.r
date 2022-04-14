@@ -44,7 +44,7 @@ nrow(weather) == sum(complete.cases(weather))
 
 
 #############        CREATE FACTORS
-# Variables can be convertted into Factors type by simply using as.factor() function. THis function is a function of factor() functional family. When using this function, R will arrange automatically based on alphabetic order if the data is STRING type. 
+# Variables can be convertted into Factors type by simply using as.factor() function. THis function is a function of factor() functional family. When using this function, R will arrange automatically based on alphabetic order if the data is STRING type.
 
 class(weather$season) # check the class type for season variables
 summary(weather$season)
@@ -75,7 +75,7 @@ table(weather$dir.wind)
 rel <- round(prop.table(table(weather$dir.wind))*100,1)
 rel
 
-# We arrange this variable 
+# We arrange this variable
 sort(rel,decreasing = TRUE)
 
 # We now can convert 16 wind directions to 8 directions
@@ -115,7 +115,7 @@ weather$date  <- first.day + weather$day.count - 1 # create a formulate to modif
 
 ##### ROUNDING HOURS
 
-# In R, working with date and time is quite hard so it requires patient. 
+# In R, working with date and time is quite hard so it requires patient.
 
 
 ### for low temperature
@@ -125,7 +125,7 @@ l.temp.time.date <- round(l.temp.time.date,"hours")# rounding to the nearest hou
 head(l.temp.time.date)
 attributes(l.temp.time.date) # check the attribute
 weather$l.temp.hour <- l.temp.time.date$hour # take out only hours
-head(weather$l.temp.hour) # 
+head(weather$l.temp.hour) #
 weather$l.temp.hour <- as.factor(weather$l.temp.hour) # change it to factor
 head(weather$l.temp.hour)
 
@@ -133,28 +133,28 @@ head(weather$l.temp.hour)
 
 h.temp.time.date <- as.POSIXlt(paste(weather$date,weather$h.temp.time))
 head(h.temp.time.date)
-h.temp.time.date <- round(h.temp.time.date,"hours")# 
+h.temp.time.date <- round(h.temp.time.date,"hours")#
 head(h.temp.time.date)
-attributes(h.temp.time.date) # 
+attributes(h.temp.time.date) #
 weather$h.temp.hour <- h.temp.time.date$hour #
-head(weather$h.temp.hour) # 
-weather$h.temp.hour <- as.factor(weather$h.temp.hour) # 
+head(weather$h.temp.hour) #
+weather$h.temp.hour <- as.factor(weather$h.temp.hour) #
 head(weather$h.temp.hour)
 
 
 
 gust.wind.time.date <- as.POSIXlt(paste(weather$date,weather$gust.wind.time))
 head(gust.wind.time.date)
-gust.wind.time.date <- round(gust.wind.time.date,"hours")# 
+gust.wind.time.date <- round(gust.wind.time.date,"hours")#
 head(gust.wind.time.date)
-attributes(gust.wind.time.date) # 
-weather$gust.wind.hour <- gust.wind.time.date$hour # 
-head(weather$gust.wind.hour) # 
-weather$gust.wind.hour <- as.factor(weather$gust.wind.hour) # 
+attributes(gust.wind.time.date) #
+weather$gust.wind.hour <- gust.wind.time.date$hour #
+head(weather$gust.wind.hour) #
+weather$gust.wind.hour <- as.factor(weather$gust.wind.hour) #
 
 head(weather$gust.wind.hour)
 
-str(weather) # 
+str(weather) #
 
 ## Note
 
@@ -163,7 +163,7 @@ str(weather) #
 
 # We note that R is quite powerful to visualize and modelling. but R is not the only language used to clean data, alternatively, you can use different way to do data cleaning.
 
-### You can use excel with several useful function to do the same jobs, especially when data is small. 
+### You can use excel with several useful function to do the same jobs, especially when data is small.
 
 
 ### Using other language like Python
@@ -179,13 +179,13 @@ str(weather) #
 
 # This libaray was created by Hadley Wickham based on graphical method developed by Leland Wilkison. This defines a standard grammar used to create graphs. Since 2014, ggplots is the most downloadable libaries in R.
 
-#GGplot2 works based on the concept of Layering. Each part of the graph is visualized using a specific layer such as layer for coordinate, layer for size, layer for lable, layer for specific type of graph.. 
+#GGplot2 works based on the concept of Layering. Each part of the graph is visualized using a specific layer such as layer for coordinate, layer for size, layer for lable, layer for specific type of graph..
 
 # Ok then how can we practice, now if we want to visualize the relationship between low and high temperature, change color according to season and choose size, how can we do.
 
 # Steps in using ggplot2
 
-## A graph is created using ggplot() function, and right after this, we can add layer. 
+## A graph is created using ggplot() function, and right after this, we can add layer.
 
 
 #### ggplot(data = dataframe, aes(x = var1, y= var2, colour = var3, size = var4))
@@ -194,17 +194,17 @@ str(weather) #
 
 library(ggplot2)
 ggplot(data = weather, aes(x = l.temp, y= h.temp, colour = season)) +
-        geom_point()  
+        geom_point()
 #--> create graph and type of graph
 
-ggplot(data = weather, aes(x = l.temp, y= h.temp, colour = season)) + 
+ggplot(data = weather, aes(x = l.temp, y= h.temp, colour = season)) +
          geom_point(aes(colour=dir.wind))#  --> same as before but add in some decoration
 
 
-ggplot(data = weather, aes(x = h.temp, y= l.temp)) + 
+ggplot(data = weather, aes(x = h.temp, y= l.temp)) +
          geom_point(colour = "blue")  #---> change for single colour
 
-ggplot(data = weather, aes(x = l.temp, y= h.temp)) + 
+ggplot(data = weather, aes(x = l.temp, y= h.temp)) +
          geom_point(aes(size=rain), colour = "blue")  #--> change the size of dot
 
 #--------------------------------------------------------------
@@ -249,7 +249,7 @@ ggplot(weather,aes(x = month, y = ave.temp+10)) +
   labs(size="Rain")
 
 
-## Analyze the relationship between high and low temp. 
+## Analyze the relationship between high and low temp.
 
 ggplot(weather,aes(x = l.temp, y = h.temp)) +
   geom_point(colour = "firebrick", alpha = 0.3) +
@@ -259,12 +259,12 @@ ggplot(weather,aes(x = l.temp, y = h.temp)) +
   scale_color_manual(name = "Seasons",labels = c("Spring", "Summer", "Autumn", "Winter"), values = c("red", "blue","green","gray"))
 
 
-## Distribution of low and high temp. in daily hoursl. 
+## Distribution of low and high temp. in daily hoursl.
 
 
 library(reshape2) # Use this libarary to change from wide to long table
 
-temperatures <- weather[c("day.count","h.temp.hour","l.temp.hour")] # only select necessary variables (day and temp) and set new name for this table. 
+temperatures <- weather[c("day.count","h.temp.hour","l.temp.hour")] # only select necessary variables (day and temp) and set new name for this table.
 head(temperatures)
 head(temperatures)
 tail(temperatures)
@@ -272,7 +272,7 @@ tail(temperatures)
 temperatures <- melt(temperatures,id.vars = "day.count",
                      variable.name = "l.h.temp", value.name = "hour")
 
-temperatures$hour <- factor(temperatures$hour,levels=0:23) # Necessary to arrange the order 
+temperatures$hour <- factor(temperatures$hour,levels=0:23) # Necessary to arrange the order
 
 ggplot(temperatures) +
   geom_bar(aes(x = hour, fill = l.h.temp)) +
@@ -300,9 +300,9 @@ ggplot(temperatures) +
 # Step 1: Analyze dependent variables (continous variable) --> we need to draw the frequency graph of this variable, and also plot again time to see the tendency. Will this variable be transformed into binary variable? or transform into multiple factors such as no rain, litle rain, moderate, heavy rain???
 
 
-# Step 2: --> finding relationshop among input and out put variables --> is it linear or non-linear. 
+# Step 2: --> finding relationshop among input and out put variables --> is it linear or non-linear.
 
-# Step 3: Repeat the same steps but for other variables in the tables. 
+# Step 3: Repeat the same steps but for other variables in the tables.
 
 
 # Step 4 4: Find the correlation or relationship between output and inputs in factor types. How is outliners and how to deal with it.
@@ -312,7 +312,7 @@ ggplot(temperatures) +
 
 # Output variables are RAIN
 
-# 
+#
 ggplot(weather, aes(date,rain)) +
   geom_point(aes(colour = rain)) +
   geom_smooth(colour = "blue", size = 1) +
@@ -320,12 +320,12 @@ ggplot(weather, aes(date,rain)) +
   scale_y_continuous(breaks = seq(0,80,20))
 
 
-# Histogram 
+# Histogram
 
 ggplot(weather,aes(rain)) +
   geom_histogram(binwidth = 1,colour = "blue", fill = "darkgrey") +
   scale_x_continuous(breaks = seq(0,80,5)) +
-  scale_y_continuous(breaks = seq(0,225,25)) 
+  scale_y_continuous(breaks = seq(0,225,25))
 
 summary(weather$rain) # độ lệch sang phải rất cao
 summary(subset(weather, rain > 0)$rain) # độ lệch vẫn còn cao
@@ -364,9 +364,9 @@ nrow(subset(weather, rain <1 & rain >0)) # check no. of days with little rain
 
 weather$rained <- ifelse(weather$rain >= 1, "Rain", "No Rain") # biến mới
 
-table(rained = weather$rained) # 
+table(rained = weather$rained) #
 
-prop.table(table(rained = weather$rained)) # 
+prop.table(table(rained = weather$rained)) #
 
 # Continous variables
 
@@ -374,21 +374,21 @@ prop.table(table(rained = weather$rained)) #
 ggplot(weather, aes(season,rain)) +
   geom_jitter(aes(colour=rain), position = position_jitter(width = 0.2)) +
   scale_colour_gradient2(low = "blue", mid = "red",high = "black", midpoint = 30) +
-  scale_y_continuous(breaks = seq(0,80,20)) 
+  scale_y_continuous(breaks = seq(0,80,20))
 
 # Quick estimate the rain per season
 tapply(weather$rain,weather$season,summary)
 
 
-# Using binary 
+# Using binary
 
 
-# 
+#
 ggplot(weather,aes(season)) +
   geom_bar(aes(fill = rained), position = "fill") +
   geom_hline(aes(yintercept = prop.table(table(weather$rained))["No"]),
              colour = "blue",linetype = "dashed", size = 1) +
-  annotate("text", x = 1, y = 0.65, label = "yr. w/o = 0.60", colour = "blue") 
+  annotate("text", x = 1, y = 0.65, label = "yr. w/o = 0.60", colour = "blue")
 
 
 round(prop.table(table(season = weather$season, rained= weather$rained),1),2)
@@ -407,21 +407,21 @@ str(weather.num)
 
 round(cor(weather.num),2)
 
-# 
-round(cor(weather.num),2)[1,] # 
+#
+round(cor(weather.num),2)[1,] #
 
 
 weather.num.season <- split(weather.num,weather$season)
 
 
-class(weather.num.season) # 
+class(weather.num.season) #
 
 length(weather.num.season) #
 
-summary(weather.num.season) # 
+summary(weather.num.season) #
 
 
-attributes(weather.num.season) # 
+attributes(weather.num.season) #
 
 sapply(weather.num.season, function (x) round(cor(x)["rain",],2))
 
@@ -431,7 +431,7 @@ lapply(weather.num.season, function (x) round(cor(x)["rain",],2))
 ggplot(weather,aes(gust.wind,rain)) +
   geom_point(colour = "firebrick") +
   geom_smooth(size = 0.75, se = F) +
-  facet_wrap(~season) 
+  facet_wrap(~season)
 
 quantile(weather$h.temp)
 
@@ -442,7 +442,7 @@ table(weather$h.temp.quant)
 
 ggplot(weather,aes(rained,gust.wind)) +
   geom_boxplot(aes(colour=rained)) +
-  facet_grid(h.temp.quant~season) 
+  facet_grid(h.temp.quant~season)
 
 
 #EDA --> Exploratory Data Analysis
@@ -454,14 +454,14 @@ ggplot(weather,aes(rained,gust.wind)) +
 #--------------------------------------------------------------
 #--------------------------------------------------------------
 
-set.seed(123) # 
+set.seed(123) #
 
 index <- sample(1:nrow(weather),size = 0.7*nrow(weather))
 
-# 
+#
 train <- weather[index,]
 
-# 
+#
 test <- weather [-index,]
 
 
@@ -470,7 +470,7 @@ test <- weather [-index,]
 nrow(train)
 nrow(test)
 
-# 
+#
 group <- rep(NA,365)
 group <- ifelse(seq(1,365) %in% index,"Train","Test")
 
@@ -483,7 +483,7 @@ ggplot(df,aes(x = date,y = rain, color = group)) +
 
 
 
-# 
+#
 
 write.csv(train,"weather02-train.csv", row.names = FALSE)
 write.csv(test,"weather02-test.csv", row.names = FALSE)
@@ -510,13 +510,13 @@ MAE.baseline
 # Multiple linear regression
 
 
-# 
+#
 lin.reg <- lm(log(rain+1) ~ season +  h.temp + ave.temp + ave.wind + gust.wind +
                 dir.wind + as.numeric(gust.wind.hour), data = train)
 
 summary(lin.reg)
 
-# 
+#
 exp(lin.reg$coefficients["gust.wind"])
 
 test.pred.lin <- exp(predict(lin.reg,test))-1
@@ -530,9 +530,9 @@ MAE.lin.reg
 
 ## Decision Tree Analysis
 
-library(rpart) # 
+library(rpart) #
 library(rpart.plot)
-library(rattle) # 
+library(rattle) #
 
 #rattle()
 
@@ -661,7 +661,7 @@ weather_xl <-weather
 summary(weather_xl$ave.temp) #
 weather_xl$ave.temp.c = cut(weather_xl$ave.temp, breaks = c(-Inf,14,21,Inf), labels = c("cold", "mild", "warm"), include.lowest = TRUE)
 
-summary(weather_xl$rain) 
+summary(weather_xl$rain)
 weather_xl$rain.c = cut(weather_xl$rain, breaks = c(-Inf, 25, 50, Inf), labels = c("low", "moderate", "high"), include.lowest = TRUE)
 
 summary(weather_xl$ave.wind)
@@ -684,7 +684,7 @@ num_weather = length(unique(weather_xl_tree$season)) *  length(unique(weather_xl
 num_weather
 
 table(weather_xl_tree$season)
-table(weather_xl_tree$dir.wind)                                                                                                                                                                                                                                         
+table(weather_xl_tree$dir.wind)
 table(weather_xl_tree$ave.temp.c)
 table(weather_xl_tree$rain.c)
 table(weather_xl_tree$ave.wind.c)
@@ -702,22 +702,22 @@ vtree(weather_xl_tree, "gust.wind.c", palette = 6, sortfill= TRUE)
 total = nrow(weather_xl_tree)
 table(weather_xl_tree$rain.c)
 vtree(weather_xl_tree, c("rain.c"), horiz = FALSE)
-h.s = -342/total*log(342/total) -14/total*log(14/total) -9/total*log(9/total) 
+h.s = -342/total*log(342/total) -14/total*log(14/total) -9/total*log(9/total)
 h.s #
 
 #
 table(weather_xl_tree$gust.wind.c)
 vtree(weather_xl_tree, c("gust.wind.c"), horiz = FALSE)
-h.s = -100/total*log(100/total) -185/total*log(185/total) -80/total*log(80/total) 
+h.s = -100/total*log(100/total) -185/total*log(185/total) -80/total*log(80/total)
 h.s #
 
 #
 table(weather_xl_tree$ave.wind.c)
 vtree(weather_xl_tree, c("ave.wind.c"), horiz = FALSE)
-h.s = -186/total*log(186/total) -88/total*log(88/total) -91/total*log(91/total) 
+h.s = -186/total*log(186/total) -88/total*log(88/total) -91/total*log(91/total)
 h.s #
 
-table(weather_xl_tree$dir.wind)                                                                                                                                                                                                                                         
+table(weather_xl_tree$dir.wind)
 
 table(weather_xl_tree$ave.temp.c)
 
@@ -734,13 +734,10 @@ control <- rpart.control(minsplit = 2, #
 
 tree <- rpart(rain.c~ season + ave.temp.c + ave.wind.c +  gust.wind.c + dir.wind , #
               data=weather_xl_tree, #
-              parms=list(split='information'), 
-              control = control, 
-              method = "class") 
+              parms=list(split='information'),
+              control = control,
+              method = "class")
 tree
 rpart.plot(tree, nn=TRUE)
 
 ## the end
-
-
-

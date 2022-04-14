@@ -1,4 +1,4 @@
-source("week1-3-mapping-in-R.r")
+source("3-mapping-in-R.r")
 # load the house prices csv file
 #https://dataviz.spatial.ly/worksheets/camden/
 houses <- read.csv("Camden/tables/CamdenHouseSales15.csv")

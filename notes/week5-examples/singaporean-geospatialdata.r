@@ -1,3 +1,9 @@
+#--------------------------------------------------------------
+library(rstudioapi) # We load this libary in order to use the below command to set the working directory to the file --> path
+setwd(dirname(getActiveDocumentContext()$path))
+
+
+
 #loading geospatial R libararies
 library(GISTools)
 library(sf)
@@ -62,11 +68,60 @@ pushViewport(viewport(layout=grid.layout(1,2)))
 print(t1, vp=viewport(layout.pos.col = 1, height = 5))
 print(t2, vp=viewport(layout.pos.col = 2, height = 5))
 
+##calculating the centroin
 
 
 
 
 
+
+
+
+
+
+
+
+
+mydata <- structure(
+  list(pond = c("A10", "AA006", "Blacksmith", "Borrow.Pit.1", 
+                "Borrow.Pit.2", "Borrow.Pit.3", "Boulder"), 
+       lat = c(41.95928, 41.96431, 41.95508, 41.95601, 41.95571, 41.95546, 
+               41.918223), 
+       long = c(-72.14605, -72.121, -72.123803, -72.15419, -72.15413, 
+                -72.15375, -72.14978), 
+       area = c(1500L, 250L, 361L, 0L, 0L, 0L, 1392L), 
+       canopy = c(66L, 0L, 77L, 0L, 0L, 0L, 98L), 
+       avg.depth = c(60.61538462, 57.77777778, 71.3125, 41.44444444, 
+                     37.7, 29.22222222, 43.53333333)), 
+  class = "data.frame", row.names = c(NA, -7L))
+
+
+library(sf)
+data_sf <- st_as_sf(mydata, coords = c("long", "lat"),
+                    # Change to your CRS
+                    crs = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+st_is_longlat(data_sf)
+
+
+
+#Dataframe 1
+df1<-structure(list(lat = c(54L, 55L, 51L, 54L, 53L, 50L, 47L, 51L, 
+                       49L, 54L), lon = c(14L, 8L, 15L, 7L, 6L, 5L, 13L, 5L, 13L, 11L
+                       ), PPP2000_40 = c(4606, 6575, 6593, 7431, 9393, 10773, 11716, 
+                                         12226, 13544, 14526)), .Names = c("lat", "lon", "PPP2000_40"), row.names =c(6764L, 8796L, 8901L, 9611L, 11649L, 12819L, 13763L, 14389L, 15641L, 
+                                                                                                                     16571L), class = "data.frame")
+
+# Dataframe 2
+df2<-structure(list(lat = c(47, 47, 47, 47, 47, 47, 48, 48, 48, 48
+), lon = c(7, 8, 9, 10, 11, 12, 7, 8, 9, 10), GDP = c(19.09982, 
+                                                      13.31977, 14.95925, 6.8575635, 23.334565, 6.485748, 24.01197, 14.30393075, 21.33759675, 9.71803675)), .Names = c("lat", "lon", "GDP"), row.names = c(NA,  10L), class = "data.frame")
+
+library(geosphere)
+mat <- distm(df1[,c('lon','lat')], df2[,c('lon','lat')], fun=distVincentyEllipsoid)
+df1$GDP <- df2$GDP[apply(mat, 1, which.min)]
+
+df1
+df2
 
 
 

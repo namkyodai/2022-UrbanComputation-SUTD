@@ -6,7 +6,7 @@ Output.Areas<- readOGR("./Camden_oa11", "Camden_oa11")
 plot(Output.Areas)
 
 
-source("week1-2-EDA.r")
+source("2-EDA.r")
 
 
 OA.Census <- merge(Output.Areas, Census.Data, by.x="OA11CD", by.y="OA")

@@ -1,4 +1,4 @@
-source("week1-4-mapping-pointdata.r")
+source("4-mapping-pointdata.r")
 #proj4string(OA.Census) <- CRS("+init=EPSG:27700")
 #proj4string(House.Points) <- CRS("+init=EPSG:27700")
 
@@ -10,7 +10,7 @@ pip <- over(House.Points, OA.Census)
 # include pip into the dataset
 House.Points@data <- cbind(House.Points@data, pip)
 
-View(House.Points@data)
+#View(House.Points@data)
 
 # plot the relationshiop between price and unemployment
 plot(log(House.Points@data$Price), House.Points@data$Unemployed)
