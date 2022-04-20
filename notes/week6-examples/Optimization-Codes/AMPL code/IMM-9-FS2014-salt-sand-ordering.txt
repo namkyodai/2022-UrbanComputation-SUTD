@@ -1,0 +1,15 @@
+
+for {1..1} {
+solve;
+display buy;
+}
+
+
+#sensitivity analysis
+let cost["sand","A"]:=128;
+for {1..16} {
+solve;
+display buy;
+let cost["sand","A"]:=cost["sand","A"]+4;
+}
+

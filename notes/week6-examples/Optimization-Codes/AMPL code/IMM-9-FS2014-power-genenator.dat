@@ -1,0 +1,15 @@
+#Data file: IMM-9-FS2014-power-genenator.dat
+data;
+set GENERATOR:= 10MW 25MW 50MW 100MW;
+param T:=5; #planning term (5 years)
+#cost of operation and maintenance(CHF/year)
+param c :=
+	[*,*]:  			1 		2		3		4		5	:=
+			10MW		300		250		200		170 	145
+			25MW		460		375		350		280		235
+			50MW		670		558		465		380		320
+			100MW		950		790		670		550		460; 	
+param Q :=  1 780	2 860	3 950	4 1060 5 1180;
+param G :=  10MW 10	25MW 25	50MW 50	100MW 100;
+param P:= 750;
+

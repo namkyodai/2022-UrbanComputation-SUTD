@@ -7,18 +7,16 @@ setwd(dirname(getActiveDocumentContext()$path))
 library(xts)
 library(leaflet)
 leaflet() %>% 
-  setView(lng = 103.81, lat = 1.35, zoom = 11) %>% 
+  setView(lng = 106.63, lat = 10.82, zoom = 11) %>% 
   addTiles()
 
 ##let try with other Tiles provider from https://leaflet-extras.github.io/leaflet-providers/preview/index.html
 
 leaflet() %>% 
-  setView(lng = 103.81, lat = 1.35, zoom = 11) %>% 
+  setView(lng = 106.63, lat = 10.82, zoom = 11) %>% 
   addProviderTiles("Stamen.Watercolor")%>%
   addProviderTiles("Stamen.TonerHybrid")%>%
   addProviderTiles("Stamen.Terrain")
-
-
 
 ##loading data
 library(rgdal)
@@ -33,11 +31,11 @@ world_spdf <- readOGR("world_shape_file/TM_WORLD_BORDERS_SIMPL-0.3.shp")
   
 plot(world_spdf)
 
-class(world_spdf)
+#class(world_spdf)
 
 head(world_spdf@data)
 
-world_spdf@polygons[[1]]
+#world_spdf@polygons[[1]]
 
 
 covidData <- read.csv("https://covid19.who.int/WHO-COVID-19-global-data.csv", fileEncoding="UTF-8-BOM", stringsAsFactors = FALSE)
@@ -45,7 +43,7 @@ covidData <- read.csv("https://covid19.who.int/WHO-COVID-19-global-data.csv", fi
 covidData <- na.omit(covidData)
 
 head(covidData)
-
+head(world_spdf@data)
 
 library(RColorBrewer)
 
@@ -62,7 +60,7 @@ head(df@data)
 #match cases and spatial data via ISO2/Country Code
 world_spdf$Cases <- selectedData$Cumulative_cases[match(world_spdf$ISO2, selectedData$Country_code)]
 
-
+head(world_spdf@data)
 
 
 #create label texts
@@ -87,7 +85,11 @@ leaflet(world_spdf) %>%
                    fillColor = ~ifelse(Cases > 0, colorPalette(Cases), "transparent"),
                    fillOpacity = 0.8,
                    label = ~lapply(LabelText, htmltools::HTML))%>% 
-   addLegend(pal = colorPalette, values = covidData$Cumulative_cases, opacity=0.9, title = "Cases", position = "bottomleft")
+  leaflet::addLegend(pal = colorPalette, 
+             values = covidData$Cumulative_cases, 
+             opacity=0.9, 
+             title = "Cases", 
+             position = "bottomleft")
 
 
 leaflet(world_spdf) %>% 
@@ -103,6 +105,6 @@ leaflet(world_spdf) %>%
     weight = 1,
     label = ~lapply(LabelText, htmltools::HTML)) %>%
   
-  addLegend(pal = colorPalette, values = covidData$Cumulative_cases, opacity=0.9, title = "Cases", position = "bottomleft")
+  leaflet::addLegend(pal = colorPalette, values = covidData$Cumulative_cases, opacity=0.9, title = "Cases", position = "bottomleft")
 
 
