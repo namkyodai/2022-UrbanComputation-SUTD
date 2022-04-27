@@ -1,0 +1,26 @@
+data;
+set MA:= sand salt;
+set SO:= A B C;
+param T:=2; #planning term (2 years)
+#cost of buying material from each supplier (CHF/ton)
+param cost (tr):  	sand 	salt:=
+			A		200 	160
+			B		250 	140
+			C		300 	170; 
+#minimum quantity to buy from each supplier as contractual agreement (ton)
+param limit_min :=
+	[sand,*,*]:		1	2:=
+			A		50	50
+			B		50	50
+			C		50	50 
+	[salt,*,*]:		1	2 :=
+			A		50	50
+			B		50	50
+			C		50	50; 
+param require :=
+	[*,*]:	1	2 :=
+	sand	350 600
+	salt	500 700 ;
+
+
+	

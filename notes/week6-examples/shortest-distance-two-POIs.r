@@ -6,6 +6,8 @@ library(geosphere)
 # Example 1
 xy <- rbind(c(0,0),c(90,90),c(10,10),c(-120,-45))
 
+xy
+
 distm(xy)
 
 
@@ -14,7 +16,6 @@ xy2 <- rbind(c(0,0),c(10,-10))
 xy2
 
 distm(xy, xy2)
-
 distm(xy2, xy)
 
 # Example 2
@@ -75,12 +76,28 @@ row
 column <- length(distance.df1.df2[1,])
 column
 
+
+
 x1<-matrix(double(1),nrow=row,ncol=1)
 x2<-matrix(double(1),nrow=row,ncol=1)
+x1
+x2
 
-vidu <- c(2,1,3,6)
-which.min(vidu)
-which.max(vidu)
+a <- c(2,1,3,6)
+a
+which.min(a)
+which.max(a)
+
+distance.df1.df2
+distance.df1.df2[1,]
+distance.df1.df2[2,]
+distance.df1.df2[3,]
+
+which.min(distance.df1.df2[1,])
+which.min(distance.df1.df2[2,])
+which.min(distance.df1.df2[3,])
+
+
 
 for (i in 1:row){
 #  for (j in 1: column){
@@ -88,6 +105,8 @@ for (i in 1:row){
     x2[i] <- distance.df1.df2[i,x1[i]]
 #  }
 }
+
+
 x1
 x2
 
@@ -114,7 +133,7 @@ df4<-structure(list(lat = c(51, 52, 54.5, 51.2),
                class = "data.frame")
 
 df3
-
+df4
 
 distance.df3.df4 <- distm(df3[,c('lon','lat')], df4[,c('lon','lat')], fun=distVincentyEllipsoid)
 
@@ -134,7 +153,10 @@ for (i in 1:row){
 
 x3.x4 <- cbind(x3,x4)
 x3.x4
+df3
+
 x5 <- df3
+x5
 x5$distance <- x3.x4[,2]
 x5
 x5$poi <-df4$poi[apply(distance.df3.df4, 1, which.min)]

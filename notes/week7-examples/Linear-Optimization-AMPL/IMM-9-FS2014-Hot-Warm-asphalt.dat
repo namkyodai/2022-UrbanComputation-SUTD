@@ -1,0 +1,26 @@
+data;
+set asphalt := HMAC WMAC ; #
+param thickness := 0.05; # in cm
+param length := 20; # in km
+param width := 6.5; # in m
+param density := 2400; # kg/m3
+param CO2_limit := 13; #allowance level of CO2 (tons)
+param cost_limit := 2860000; #CHF
+param 	CO2:=
+	HMAC	2000		
+	WMAC	1600;# kg/m3 of asphalt
+param 	rate:=
+	HMAC	550		
+	WMAC	450;# tons/day
+param 	cost:=
+	HMAC	20		
+	WMAC	25;# CHF/m2
+param 	time_limit:=
+	HMAC	20		
+	WMAC	25;# days
+param 	profit:=
+	HMAC	3		
+	WMAC	4;# CHF/m2
+
+
+

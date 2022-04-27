@@ -22,6 +22,9 @@ plots
 #simpson index
 source("simpson-f.r")
 
+
+
+
 simpson1
 
 

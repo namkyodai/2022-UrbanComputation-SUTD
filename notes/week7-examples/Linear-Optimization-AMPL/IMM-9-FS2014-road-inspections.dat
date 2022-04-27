@@ -1,0 +1,15 @@
+#data 
+#file name: IMM-9-FS2014-road-inspections.dat
+set TEST := friction bearing ; #
+set PERSON := data_checker inspector ; #
+#cost (CHF/km)
+param c:=
+	friction	1400		
+	bearing		1600;
+param 	d(tr):			friction	bearing :=
+	data_checker		2			4		
+	inspector		 	5			5;
+param M:= data_checker 28 inspector 50; # (hour/week)
+param 	L:=
+	friction		8		
+	bearing		 	6;

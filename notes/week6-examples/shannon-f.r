@@ -1,5 +1,4 @@
 shannon.h<-function(data){
-  
   H<-numeric(nrow(data))
   mult<-numeric(length(data[1,]))
   

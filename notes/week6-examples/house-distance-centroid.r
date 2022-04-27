@@ -49,6 +49,9 @@ House.Points
 
 plot(House.Points)
 
+nrow(House.Points)
+nrow(cent_sf)
+
 house.cordinate <-data.frame(st_coordinates(House.Points))
 cent.cordinate <-data.frame(st_coordinates(cent_sf))
 
@@ -59,6 +62,7 @@ coordinates(house.cordinate) <- ~X + Y
 
 
 str(house.cordinate)
+class(house.cordinate)
 
 proj4string(house.cordinate)
 
@@ -79,6 +83,9 @@ class(cent.cordinate)
 cent.cordinate <- spTransform(cent.cordinate, CRS("+init=epsg:4326"))
 
 
+
+
+
 head(cent.cordinate@coords)
 
 
@@ -89,6 +96,9 @@ points(cent.cordinate, col = "blue")
 
 cent.cordinate@coords
 library(geosphere)
+
+house.cordinate@coords
+cent.cordinate@coords
 
 distance.house.cent <- distm(house.cordinate@coords[,c('X','Y')], cent.cordinate@coords[,c('X','Y')], fun=distVincentyEllipsoid)
 

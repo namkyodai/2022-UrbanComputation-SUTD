@@ -5,6 +5,8 @@ library(reshape2) #
 library(rgdal)
 library(sf)
 library(rgeos)
+library(tmap)
+library(ggplot2)
 #reading data csv
 df <- data.frame(read.csv("../week5-examples/Camden/tables/CT0010_oa11.csv",sep = ",", skip = 0))
 
@@ -42,6 +44,9 @@ for (i in 1:nrow(df2[1])){
   H1[i] <- diversity(df3$value,'shannon')
 }
 
+
+
+
 H1
 head(H1)
 ###
@@ -52,6 +57,10 @@ df4 <- df%>%
 df4
 #adding this to spatial data
 OA.Census <- readOGR("Camden/Census_OA_Shapefile.shp")
+
+plot(OA.Census)
+
+head(OA.Census@data)
 
 OA.Census <- merge(OA.Census, df4, by.x="OA11CD", by.y="GeographyCode")
 

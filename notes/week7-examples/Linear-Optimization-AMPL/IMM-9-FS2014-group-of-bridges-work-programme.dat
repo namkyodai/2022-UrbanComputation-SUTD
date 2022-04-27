@@ -1,0 +1,20 @@
+#Data file: IMM-9-FS2014-group-of-bridges-work-programme.dat
+data;
+set BRIGES:= steel concrete masonry;
+set PERSONS:= engineer contractor manager;
+
+#fixed cost
+param c :=  steel 100000	concrete 80000	masonry 90000;
+#benefit
+param b :=  steel 4800		concrete 5500	masonry 5000;
+#hours
+param h :=
+	[*,*]:  			engineer 		contractor		manager:=
+			steel		  200				600				500
+			concrete	300				300				600
+			masonry		600				400				200;
+
+#Maximum no of hours
+param Maxh :=  engineer 60000		contractor 30000	manager 40000;
+
+param M :=  steel 50		concrete 66.7	masonry 75;

@@ -1,0 +1,18 @@
+data; 
+param: SECTOR:  s :=  # defines set "SECTOR" and param "s" 
+   Sec1 153 Sec2 152 Sec3 154 Sec4 138 Sec5 127  
+   Sec6 129 Sec7 111 Sec8 110 Sec9 130 Sec10 135 ; 
+param: SITE:  q :=  # defines "SITE" and "q" 
+   Site1 350 Site2 250 Site3 500 Site4 400 Site5 200 ; 
+param l: 
+       Site1   Site2   Site3   Site4   Site5 := 
+ Sec1  3.4 1.4 4.9 7.4 9.3 
+ Sec2  2.4 2.1 8.3 9.1 8.8 
+ Sec3  1.4 2.9 3.7 9.4 8.6 
+ Sec4  2.6 3.6 4.5 8.2 8.9 
+ Sec5  1.5 3.1 2.1 7.9 8.8 
+ Sec6  4.2 4.9 6.5 7.7 6.1 
+ Sec7  4.8 6.2 9.9 6.2 5.7 
+ Sec8  5.4 6.0 5.2 7.6 4.9 
+ Sec9  3.1 4.1 6.6 7.5 7.2 
+ Sec10 3.2 6.5 7.1 6.0 8.3 ; 
