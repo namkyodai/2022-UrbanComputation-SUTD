@@ -17,7 +17,7 @@ tm_shape(OA.Census) + tm_borders(alpha=.4)
 
 # creates a coloured dot map
 tm_shape(OA.Census) + tm_borders(alpha=.4)+
-  tm_shape(House.Points) + tm_dots(col = "Price", palette = "Reds", style = "quantile") 
+  tm_shape(House.Points) + tm_dots(col = "Price", palette = "Reds", style = "quantile")
 
 # creates a coloured dot map
 
@@ -28,10 +28,10 @@ tm_shape(OA.Census) + tm_borders(alpha=.4) +
 tm_shape(OA.Census) + tm_borders(alpha=.4) +
   tm_shape(House.Points) + tm_dots(col = "Price", scale = 1.5, palette = "Purples", style = "quantile", title = "Price Paid (£)")  +
   tm_compass() +
-  tm_layout(legend.text.size = 1.1, legend.title.size = 1.4, frame = FALSE) 
+  tm_layout(legend.text.size = 1.1, legend.title.size = 1.4, frame = FALSE)
 
 # creates a proportional symbol map
-tm_shape(OA.Census) + tm_borders(alpha=.4) + 
+tm_shape(OA.Census) + tm_borders(alpha=.4) +
   tm_shape(House.Points) + tm_bubbles(size = "Price", col = "Price", palette = "Blues", style = "quantile", legend.size.show = FALSE, title.col = "Price Paid (£)") +
   tm_layout(legend.text.size = 1.1, legend.title.size = 1.4, frame = FALSE)
 
@@ -42,9 +42,3 @@ tm_shape(OA.Census) + tm_fill("Qualification", palette = "Reds", style = "quanti
 
 # write the shapefile to your computer (remember to chang the dsn to your workspace)
 #writeOGR(House.Points, dsn = "./week1-practice/Camden/", layer =  "Camden_house_sales", driver="ESRI Shapefile")
-
-
-
-
-
-

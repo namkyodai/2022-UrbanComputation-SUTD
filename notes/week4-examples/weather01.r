@@ -34,7 +34,7 @@ write.csv(weather,"weather01-factor.csv", row.names = FALSE)
 
 names(weather) #
 
-number.weather <- length(unique(weather$outlook))*length(unique(weather$temp.d))*length(unique(weather$wind.d))*length(unique(weather$play)) # 
+number.weather <- length(unique(weather$outlook))*length(unique(weather$temp.d))*length(unique(weather$wind.d))*length(unique(weather$play)) #
 number.weather
 table(weather$outlook)
 table(weather$temp.d)
@@ -172,3 +172,4 @@ tree <- rpart(play~ outlook + temp.d + humi.d + wind.d,
               method = "class")
 tree
 rpart.plot(tree, nn=TRUE)
+
