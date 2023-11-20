@@ -36,7 +36,7 @@ Census.Data <- merge(merged_data_2, Qualifications, by="OA")
 
 #4 Remove the "merged_data" objects as we won't need them anymore
 rm(merged_data_1, merged_data_2)
-#write.csv(Census.Data, "Camden/practical_data.csv", row.names=F)
+write.csv(Census.Data, "Camden/practical_data.csv", row.names=F)
 
 
 

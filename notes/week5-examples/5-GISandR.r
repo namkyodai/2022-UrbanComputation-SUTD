@@ -38,6 +38,10 @@ tm_shape(OA.Census) +
 model <- lm(OA.Census@data$Price ~ OA.Census@data$Unemployed)
 summary(model)
 
+write.csv(Census.Data, "Camden/OACensus.csv", row.names=F)
+
+
+
 ###### Buffer.
 
 
